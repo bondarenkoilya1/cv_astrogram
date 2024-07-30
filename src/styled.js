@@ -45,3 +45,20 @@ export const ContainerStyled = styled.div`
   max-width: 1520px;
   margin: 0 auto;
 `;
+
+export const VerticalLineStyled = styled.div`
+  width: 1px;
+  height: 20px;
+  background-color: #fff;
+  ${(props) =>
+    props.smallMargin &&
+    `
+    margin-right: 20px;
+    margin-left: 20px;
+  `}${(props) =>
+    props.defaultMargin &&
+    `
+    margin-right: 30px;
+    margin-left: 30px;
+  `}
+`;
