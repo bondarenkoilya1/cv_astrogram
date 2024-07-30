@@ -22,8 +22,22 @@ export const GlobalStyle = css`
     padding: 0;
   }
 
+  body {
+    background-color: #111018;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
   #root {
     font-family: "SF Pro Text", sans-serif;
+    color: #fff;
   }
 `;
 
