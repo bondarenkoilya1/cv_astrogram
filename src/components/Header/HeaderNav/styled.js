@@ -28,14 +28,14 @@ export const NavLinkStyled = styled(NavLink)`
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
+  &:focus,
   &.active {
+    outline: none;
     background-image: linear-gradient(#111018, #111018),
       linear-gradient(90deg, #5846fb 0%, #ce66ff 100%);
   }
 
-  &:focus,
   &:hover {
-    outline: none;
     background: linear-gradient(90deg, #5846fb 0%, #ce66ff 100%);
     border: 1px solid #5846fb;
   }

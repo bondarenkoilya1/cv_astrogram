@@ -4,8 +4,8 @@ import { Global } from "@emotion/react";
 
 import { GlobalStyle } from "./styled";
 
-import { Header } from "./components/Header/index.js";
-import { Layout } from "./layout/Layout.jsx";
+import { Header } from "./components";
+import { Layout } from "./layout";
 
 export const App = () => {
   return (
