@@ -1,123 +1,68 @@
 {
-	"env": {
-		"browser": true,
-		"commonjs": true,
-		"node": true,
-		"es2021": true,
-		"jest": true
-	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:react/recommended",
-		"plugin:prettier/recommended"
-	],
-	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true
-		},
-		"ecmaVersion": "latest",
-		"sourceType": "module"
-	},
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
-	},
-	"plugins": [
-		"react",
-		"prettier",
-		"simple-import-sort"
-	],
-	"rules": {
-		"prettier/prettier": [
-			"error",
-			{
-				"endOfLine": "auto"
-			}
-		],
-		"simple-import-sort/imports": [
-			"error",
-			{
-				"groups": [
-					// Packages `react` related packages come first.
-					[
-						"^react",
-						"^\\w"
-					],
-					// Imports starting with `@`
-					[
-						"^@"
-					],
-					[
-						"App"
-					],
-					// Pages and utils folders
-					[
-						"./styled",
-						"^styled(/.*|$)"
-					],
-					[
-						"^themes(/.*|$)"
-					],
-					[
-						"^layout(/.*|$)"
-					],
-					[
-						"^pages(/.*|$)"
-					],
-					[
-						"^config(/.*|$)"
-					],
-					[
-						"^constants(/.*|$)"
-					],
-					[
-						"^data(/.*|$)"
-					],
-					[
-						"^components(/.*|$)"
-					],
-					[
-						"^import\\s+type"
-					],
-					[
-						"^types",
-						"^types(/.*|$)"
-					],
-					[
-						"^utils(/.*|$)"
-					],
-					[
-						"^http(/.*|$)"
-					],
-					[
-						"^services(/.*|$)"
-					],
-					[
-						"^store(/.*|$)"
-					],
-					// Side effect imports.
-					[
-						"^\\u0000"
-					],
-					// Parent imports, put `..` last.
-					[
-						"^\\.\\.(?!/?$)",
-						"^\\.\\./?$"
-					],
-					// Other relative imports, put same-folder imports and `.` last.
-					[
-						"^\\./(?=.*/)(?!/?$)",
-						"^\\.(?!/?$)",
-						"^\\./?$"
-					],
-					// Style imports.
-					[
-						"^.+\\.?(css)$"
-					]
-				]
-			}
-		],
-		"react/react-in-jsx-scope": "off"
-	}
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["react", "prettier", "simple-import-sort"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Packages `react` related packages come first.
+          ["^react", "^\\w"],
+          // Imports starting with `@`
+          ["^@"],
+          ["App"],
+          // Pages and utils folders
+          ["./styled", "^styled(/.*|$)"],
+          ["^assets(/.*|$)"],
+          ["^themes(/.*|$)"],
+          ["^layout(/.*|$)"],
+          ["^pages(/.*|$)"],
+          ["^config(/.*|$)"],
+          ["^constants(/.*|$)"],
+          ["^data(/.*|$)"],
+          ["^components(/.*|$)"],
+          ["^import\\s+type"],
+          ["^types", "^types(/.*|$)"],
+          ["^utils(/.*|$)"],
+          ["^http(/.*|$)"],
+          ["^services(/.*|$)"],
+          ["^store(/.*|$)"],
+          // Side effect imports.
+          ["^\\u0000"],
+          // Parent imports, put `..` last.
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          // Other relative imports, put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports.
+          ["^.+\\.?(css)$"]
+        ]
+      }
+    ],
+    "react/react-in-jsx-scope": "off"
+  }
 }
