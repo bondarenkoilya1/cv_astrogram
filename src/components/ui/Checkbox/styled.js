@@ -12,7 +12,8 @@ export const LabelStyled = styled.label`
   line-height: 19px;
   cursor: pointer;
 
-  &[type="text"] {
+  &[type="text"],
+  &[type="squared"] {
     margin-left: 30px;
   }
 
@@ -20,6 +21,14 @@ export const LabelStyled = styled.label`
     border: 1px solid #fff;
     border-radius: 100px;
     padding: 14px 20px 14px 50px;
+  }
+
+  &[type="squared"] {
+    align-items: flex-end;
+  }
+
+  &[type="squared"] > span {
+    border-radius: 5px;
   }
 
   &[type="outline"] > span {
