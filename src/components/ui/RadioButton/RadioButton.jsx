@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 
 import { LabelStyled, RadioButtonCustomStyled, RadioButtonSemanticStyled } from "./styled";
 
-export const RadioButton = ({ children, isChecked, setIsChecked, name, key }) => {
+export const RadioButton = ({ children, isChecked, setIsChecked, name, key, ...attrs }) => {
   return (
-    <LabelStyled key={key}>
+    <LabelStyled key={key} {...attrs}>
       {/* hidden to be able to customize */}
       <RadioButtonSemanticStyled
         type="radio"
