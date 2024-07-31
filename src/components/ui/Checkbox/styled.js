@@ -4,7 +4,6 @@ import Mark from "../../../assets/images/checkbox/mark.svg";
 import MarkBlue from "../../../assets/images/checkbox/mark-blue.svg";
 
 export const LabelStyled = styled.label`
-  margin-left: 30px;
   user-select: none;
   display: inline-flex;
   align-items: center;
@@ -18,7 +17,6 @@ export const LabelStyled = styled.label`
     border: 1px solid #fff;
     border-radius: 100px;
     padding: 14px 20px 14px 50px;
-    margin-top: 20px;
   }
 
   &[type="outline"] > span {
