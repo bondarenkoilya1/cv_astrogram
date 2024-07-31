@@ -4,7 +4,7 @@ import { Global } from "@emotion/react";
 
 import { GlobalStyle } from "./styled";
 
-import { Header } from "./components";
+import { Footer, Header } from "./components";
 import { Layout } from "./layout";
 
 export const App = () => {
@@ -13,6 +13,7 @@ export const App = () => {
       <Global styles={GlobalStyle} />
       <Header />
       <Layout />
+      <Footer />
     </Router>
   );
 };

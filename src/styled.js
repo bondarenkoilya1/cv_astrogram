@@ -14,6 +14,12 @@ export const GlobalStyle = css`
     box-sizing: border-box;
   }
 
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
   *,
   *::before,
   *::after {
@@ -38,6 +44,8 @@ export const GlobalStyle = css`
   #root {
     font-family: "Space Grotesk", sans-serif;
     color: #fff;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
