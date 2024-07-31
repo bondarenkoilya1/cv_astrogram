@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 import Mark from "../../../assets/images/checkbox/mark.svg";
+import MarkBlue from "../../../assets/images/checkbox/mark-blue.svg";
 
 export const LabelStyled = styled.label`
   margin-left: 30px;
@@ -12,6 +13,26 @@ export const LabelStyled = styled.label`
   font-weight: 700;
   line-height: 19px;
   cursor: pointer;
+
+  &[type="outline"] {
+    border: 1px solid #fff;
+    border-radius: 100px;
+    padding: 14px 20px 14px 50px;
+    margin-top: 20px;
+  }
+
+  &[type="outline"] > span {
+    border-color: #fff;
+  }
+
+  &[type="outline"]:hover > input:checked + span {
+    background: #fff url(${MarkBlue}) no-repeat center;
+  }
+
+  &:hover {
+    background: linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
+    border-color: transparent;
+  }
 `;
 
 export const CheckboxSemanticStyled = styled.input`
