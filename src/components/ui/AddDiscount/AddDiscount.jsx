@@ -23,11 +23,11 @@ const renderPrice = (currentPrice, oldPrice) => {
   );
 };
 
-export const AddDiscount = ({ discount, currentPrice, oldPrice }) => {
+export const AddDiscount = ({ discount, currentPrice, oldPrice, ...attrs }) => {
   const [data, setData] = React.useState(false);
 
   return (
-    <AddDiscountStyled>
+    <AddDiscountStyled {...attrs}>
       <AddDiscountTitleStyled>Получите весь набор со скидкой {discount}%</AddDiscountTitleStyled>
       <AddDiscountDescriptionStyled>
         Получите все дополнительные блоки гороскопа со скидкой

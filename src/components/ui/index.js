@@ -5,3 +5,4 @@ export * from "./Checkbox";
 export * from "./ProductCard";
 export * from "./TextField";
 export * from "./RadioButton";
+export * from "./RadioGroup";
