@@ -36,7 +36,7 @@ export const GlobalStyle = css`
   }
 
   #root {
-    font-family: "SF Pro Text", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     color: #fff;
   }
 `;

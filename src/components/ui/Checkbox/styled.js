@@ -7,7 +7,6 @@ export const LabelStyled = styled.label`
   user-select: none;
   display: inline-flex;
   align-items: center;
-  font-family: "Space Grotesk", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
