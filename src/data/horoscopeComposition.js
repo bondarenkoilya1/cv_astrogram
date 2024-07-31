@@ -6,9 +6,9 @@ export const horoscopeCompositionMainList = [
 ];
 
 export const horoscopeCompositionAdditionalList = [
-  { type: "gift", subtitle: "Блок с разбором", title: "Что вас ждет в любви?" },
-  { type: "main", subtitle: "Блок с разбором", title: "Какой вы в любви" },
-  { type: "main", subtitle: "Раздел гороскопа", title: "Как прокачать привлекательность" },
-  { type: "main", subtitle: "Раздел гороскопа", title: "Ваш идеальный партнер/партнерша" },
-  { type: "main", subtitle: "Раздел гороскопа", title: "Вероятность событий в любви и браке" }
+  { type: "additional", subtitle: "Блок с разбором", title: "Что вас ждет в любви?" },
+  { type: "additional", subtitle: "Блок с разбором", title: "Какой вы в любви" },
+  { type: "additional", subtitle: "Раздел гороскопа", title: "Как прокачать привлекательность" },
+  { type: "additional", subtitle: "Раздел гороскопа", title: "Ваш идеальный партнер/партнерша" },
+  { type: "additional", subtitle: "Раздел гороскопа", title: "Вероятность событий в любви и браке" }
 ];

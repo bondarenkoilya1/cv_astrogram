@@ -1,24 +1,18 @@
 import { ContainerStyled } from "../../styled";
 
-import { AddDiscount, ProductCard } from "../../components";
+import { AddDiscount, HoroscopeComposition } from "../../components";
+import { horoscopeCompositionAdditionalList, horoscopeCompositionMainList } from "../../data/index";
 
 export const Horoscopes = () => {
   return (
     <ContainerStyled>
       <div style={{ margin: "0 auto", maxWidth: 750 }}>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
-          <ProductCard type="main" subtitle="Блок с разбором" title="Любовный темперамент" />
-          <ProductCard
-            type="additional"
-            subtitle="Раздел гороскопа"
-            title="Баланс мужского и женского начала"
-          />
-          <ProductCard
-            type="gift"
-            subtitle="Раздел гороскопа"
-            title="Как встретить достойную пару"
-          />
-        </div>
+        <HoroscopeComposition array={horoscopeCompositionMainList} title="Состав гороскопа" />
+        <HoroscopeComposition
+          array={horoscopeCompositionAdditionalList}
+          title="Дополнительно"
+          style={{ marginTop: "60px" }}
+        />
         <AddDiscount discount={25} currentPrice={563} oldPrice={750} />
       </div>
     </ContainerStyled>
