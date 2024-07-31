@@ -27,6 +27,9 @@ export const NavLinkStyled = styled(NavLink)`
   background-image: linear-gradient(#111018, #111018), linear-gradient(grey, grey);
   background-origin: border-box;
   background-clip: padding-box, border-box;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
 
   &:focus,
   &.active {
