@@ -4,17 +4,18 @@ import { RadioGroupListStyled, RadioGroupStyled, RadioGroupTitleStyled } from ".
 
 import { RadioButton } from "../RadioButton";
 
-export const RadioGroup = ({ array, isChecked, setIsChecked, title }) => {
+export const RadioGroup = ({ array, selectedValue, setSelectedValue, title }) => {
   return (
     <RadioGroupStyled>
       {title && <RadioGroupTitleStyled>{title}</RadioGroupTitleStyled>}
       <RadioGroupListStyled>
         {array &&
-          array.map(({ name, text }) => (
+          array.map(({ name, text, value }) => (
             <RadioButton
               name={name}
-              isChecked={isChecked}
-              setIsChecked={setIsChecked}
+              value={value}
+              selectedValue={selectedValue}
+              onChange={setSelectedValue}
               key={crypto.randomUUID()}
               style={{ marginRight: "10px" }}>
               {text}
@@ -26,9 +27,15 @@ export const RadioGroup = ({ array, isChecked, setIsChecked, title }) => {
 };
 
 RadioGroup.propTypes = {
-  array: PropTypes.array.isRequired,
-  isChecked: PropTypes.bool.isRequired,
-  setIsChecked: PropTypes.func.isRequired,
+  array: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  selectedValue: PropTypes.string.isRequired,
+  setSelectedValue: PropTypes.func.isRequired,
   title: PropTypes.string
 };
 
