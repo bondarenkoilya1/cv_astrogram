@@ -43,14 +43,14 @@ const renderCheckbox = (type, isChecked, handleProductCardClick) => {
   }
 };
 
-export const ProductCard = ({ type, subtitle, title }) => {
+export const ProductCard = ({ type, subtitle, title, key }) => {
   const initialCheckedState = type === "gift";
   const [isChecked, setIsChecked] = React.useState(initialCheckedState);
 
   const handleProductCardClick = () => setIsChecked((prevChecked) => !prevChecked);
 
   return (
-    <ProductCardStyled onClick={handleProductCardClick}>
+    <ProductCardStyled onClick={handleProductCardClick} key={key}>
       <ProductCardContentStyled>
         <ProductCardSubtitleStyled>{subtitle}</ProductCardSubtitleStyled>
         <ProductCardTitleStyled>{title}</ProductCardTitleStyled>
@@ -65,5 +65,6 @@ export const ProductCard = ({ type, subtitle, title }) => {
 ProductCard.propTypes = {
   type: PropTypes.oneOf(["main", "additional", "gift"]).isRequired,
   subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  key: PropTypes.string.isRequired
 };

@@ -34,6 +34,7 @@ export const ProductCardTitleStyled = styled.div`
   font-weight: 700;
   line-height: 24px;
   margin: 10px 0 50px 0;
+  max-width: 280px;
 `;
 
 export const ProductCardContainerStyled = styled.div`
