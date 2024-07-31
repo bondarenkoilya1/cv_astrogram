@@ -2,13 +2,8 @@ import styled from "@emotion/styled";
 
 export const AddDiscountStyled = styled.section`
   width: 750px;
-  // remove height
-  height: 322px;
   border-radius: 20px;
   padding: 40px 0 30px 40px;
-  // set margin 0 auto for parent component
-  margin: 0 auto;
-
   background: linear-gradient(273.08deg, #350a6f 0.8%, #390a74 59.11%, #6521a8 97.19%);
 `;
 

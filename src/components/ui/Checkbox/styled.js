@@ -12,6 +12,10 @@ export const LabelStyled = styled.label`
   line-height: 19px;
   cursor: pointer;
 
+  &[type="text"] {
+    margin-left: 30px;
+  }
+
   &[type="outline"] {
     border: 1px solid #fff;
     border-radius: 100px;
@@ -26,7 +30,7 @@ export const LabelStyled = styled.label`
     background: #fff url(${MarkBlue}) no-repeat center;
   }
 
-  &:hover {
+  &[type="outline"]:hover {
     background: linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
     border-color: transparent;
   }
