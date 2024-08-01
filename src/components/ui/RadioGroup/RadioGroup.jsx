@@ -4,7 +4,7 @@ import { RadioGroupListStyled, RadioGroupStyled, RadioGroupTitleStyled } from ".
 
 import { RadioButton } from "../RadioButton";
 
-export const RadioGroup = ({ array, selectedValue, setSelectedValue, title = "" }) => {
+export const RadioGroup = ({ array, selectedValue, onChange, title = "" }) => {
   return (
     <RadioGroupStyled>
       {title && <RadioGroupTitleStyled>{title}</RadioGroupTitleStyled>}
@@ -14,8 +14,8 @@ export const RadioGroup = ({ array, selectedValue, setSelectedValue, title = "" 
             <RadioButton
               name={name}
               value={value}
-              selectedValue={selectedValue}
-              onChange={setSelectedValue}
+              checked={selectedValue === value}
+              onChange={() => onChange(value)}
               key={crypto.randomUUID()}
               style={{ marginRight: "10px" }}>
               {text}
@@ -35,6 +35,6 @@ RadioGroup.propTypes = {
     })
   ).isRequired,
   selectedValue: PropTypes.string.isRequired,
-  setSelectedValue: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   title: PropTypes.string
 };
