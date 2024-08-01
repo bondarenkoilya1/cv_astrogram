@@ -2,7 +2,7 @@ import React from "react";
 
 import { ContainerStyled } from "../../styled";
 
-import { AddDiscount, HoroscopeComposition } from "../../components";
+import { AddDiscount, BasicForm, HoroscopeComposition } from "../../components";
 import { horoscopeCompositionAdditionalList, horoscopeCompositionMainList } from "../../data";
 
 export const Horoscopes = () => {
@@ -21,6 +21,7 @@ export const Horoscopes = () => {
           oldPrice={750}
           style={{ marginTop: "40px" }}
         />
+        <BasicForm />
       </div>
     </ContainerStyled>
   );

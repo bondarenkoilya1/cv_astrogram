@@ -25,6 +25,8 @@ export const LabelStyled = styled.label`
 
   &[type="squared"] {
     align-items: flex-end;
+    font-weight: 400;
+    color: #b2add8;
   }
 
   &[type="squared"] > span {
