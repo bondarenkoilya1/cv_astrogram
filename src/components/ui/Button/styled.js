@@ -11,4 +11,9 @@ export const ButtonStyled = styled.button`
   border-radius: 100px;
   color: #fff;
   cursor: pointer;
+
+  &[disabled] {
+    opacity: 0.4;
+    cursor: progress;
+  }
 `;

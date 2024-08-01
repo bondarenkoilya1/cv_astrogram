@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 import { ButtonStyled } from "./styled";
 
-export const Button = ({ type, children, ...attrs }) => {
+export const Button = ({ type = "button", children, disabled = false, ...attrs }) => {
   return (
-    <ButtonStyled type={type} {...attrs}>
+    <ButtonStyled type={type} disabled={disabled} {...attrs}>
       {children}
     </ButtonStyled>
   );
@@ -13,9 +13,6 @@ export const Button = ({ type, children, ...attrs }) => {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf(["button", "submit", "reset"])
-};
-
-Button.defaultProps = {
-  type: "button"
+  type: PropTypes.oneOf(["button", "submit", "reset"]),
+  disabled: PropTypes.bool
 };
