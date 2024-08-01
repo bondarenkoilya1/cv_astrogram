@@ -17,9 +17,10 @@ import { Checkbox } from "../../Checkbox";
 import { RadioGroup } from "../../RadioGroup";
 import { TextField } from "../../TextField";
 
-export const BasicForm = ({ register, isSubmitting = false, ...attrs }) => {
+import { Controller } from "react-hook-form";
+
+export const BasicForm = ({ register, isSubmitting = false, control, ...attrs }) => {
   const [selectedRadio, setSelectedRadio] = useState("");
-  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const radioGroupArray = [
     { name: "sex", text: "Мужской", value: "male" },
     { name: "sex", text: "Женский", value: "female" }
@@ -53,16 +54,22 @@ export const BasicForm = ({ register, isSubmitting = false, ...attrs }) => {
         name="email"
         {...register("email")}
       />
-      <Checkbox
-        setIsChecked={setIsCheckboxChecked}
-        type="squared"
-        isChecked={isCheckboxChecked}
-        style={{ marginTop: "30px" }}>
-        Согласие с&nbsp;
-        <BasicFormLinkStyled to="/policy" target="_blank">
-          политикой конфиденциальности
-        </BasicFormLinkStyled>
-      </Checkbox>
+      <Controller
+        name="policy"
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <Checkbox
+            isChecked={value}
+            onChange={() => onChange(!value)}
+            type="squared"
+            style={{ marginTop: "30px" }}>
+            Согласие с&nbsp;
+            <BasicFormLinkStyled to="/policy" target="_blank">
+              политикой конфиденциальности
+            </BasicFormLinkStyled>
+          </Checkbox>
+        )}
+      />
       <BasicFormFooterStyled style={{ marginTop: "30px" }}>
         <BasicFormPriceInformationStyled>
           <BasicFormPriceStyled>1 050 руб.</BasicFormPriceStyled>
@@ -78,5 +85,6 @@ export const BasicForm = ({ register, isSubmitting = false, ...attrs }) => {
 
 BasicForm.propTypes = {
   register: PropTypes.func.isRequired,
-  isSubmitting: PropTypes.bool
+  isSubmitting: PropTypes.bool,
+  control: PropTypes.object
 };
