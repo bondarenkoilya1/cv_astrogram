@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import {
   BasicFormContainerStyled,
@@ -16,7 +17,7 @@ import { Checkbox } from "../../Checkbox";
 import { RadioGroup } from "../../RadioGroup";
 import { TextField } from "../../TextField";
 
-export const BasicForm = () => {
+export const BasicForm = ({ register, isSubmitting = false, ...attrs }) => {
   const [selectedRadio, setSelectedRadio] = useState("");
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const radioGroupArray = [
@@ -25,7 +26,7 @@ export const BasicForm = () => {
   ];
 
   return (
-    <BasicFormStyled style={{ marginTop: "80px", marginBottom: "130px" }}>
+    <BasicFormStyled {...attrs}>
       <BasicFormTitleStyled>Оформление</BasicFormTitleStyled>
       <BasicFormContainerStyled style={{ marginTop: "20px" }}>
         <TextField
@@ -33,6 +34,8 @@ export const BasicForm = () => {
           label="Ваше имя"
           placeholder="Ваше имя"
           style={{ marginRight: "32px" }}
+          {...register("name")}
+          name="name"
         />
         <RadioGroup
           array={radioGroupArray}
@@ -47,6 +50,8 @@ export const BasicForm = () => {
         placeholder="Ваша почта"
         type="email"
         style={{ marginTop: "30px" }}
+        name="email"
+        {...register("email")}
       />
       <Checkbox
         setIsChecked={setIsCheckboxChecked}
@@ -63,8 +68,15 @@ export const BasicForm = () => {
           <BasicFormPriceStyled>1 050 руб.</BasicFormPriceStyled>
           <BasicFormPriceSubtitleStyled>Сумма заказа</BasicFormPriceSubtitleStyled>
         </BasicFormPriceInformationStyled>
-        <Button type="button">Перейти к оформлению</Button>
+        <Button type="submit" disabled={isSubmitting}>
+          Перейти к оформлению
+        </Button>
       </BasicFormFooterStyled>
     </BasicFormStyled>
   );
+};
+
+BasicForm.propTypes = {
+  register: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool
 };
