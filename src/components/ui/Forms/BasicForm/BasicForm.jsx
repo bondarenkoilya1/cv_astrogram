@@ -19,7 +19,7 @@ import { Checkbox } from "../../Checkbox";
 import { RadioGroup } from "../../RadioGroup";
 import { TextField } from "../../TextField";
 
-export const BasicForm = ({ register, isSubmitting = false, control, ...attrs }) => {
+export const BasicForm = ({ register, isSubmitting = false, control = {}, ...attrs }) => {
   return (
     <BasicFormStyled {...attrs}>
       <BasicFormTitleStyled>Оформление</BasicFormTitleStyled>
