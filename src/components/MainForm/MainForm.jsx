@@ -1,19 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { MainFormDescriptionStyled, MainFormStyled, MainFormTitleStyled } from "./styled";
 
 import { horoscopeCompositionAdditionalList, horoscopeCompositionMainList } from "../../data";
+import { mainFormSchema } from "../../schemes";
 import { HoroscopeComposition } from "../HoroscopeComposition";
 import { AddDiscount, BasicForm } from "../ui";
-
-const schema = z.object({
-  name: z.string().min(2),
-  email: z.string().email()
-});
 
 export const MainForm = () => {
   const {
@@ -21,13 +16,10 @@ export const MainForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting }
   } = useForm({
-    resolver: zodResolver(schema)
+    resolver: zodResolver(mainFormSchema)
   });
 
-  const onSubmit = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
-  };
+  const onSubmit = async (data) => data;
 
   return (
     <MainFormStyled onSubmit={handleSubmit(onSubmit)}>

@@ -52,6 +52,7 @@
           ["^http(/.*|$)"],
           ["^services(/.*|$)"],
           ["^store(/.*|$)"],
+          ["^schemes(/.*|$)"],
           // Side effect imports.
           ["^\\u0000"],
           // Parent imports, put `..` last.
