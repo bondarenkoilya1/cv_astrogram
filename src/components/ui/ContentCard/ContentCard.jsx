@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 
 import { ContentCardDescriptionStyled, ContentCardStyled, ContentCardTitleStyled } from "./styled";
 
-export const ContentCard = ({ title = "", description = "", ...attrs }) => {
+export const ContentCard = ({ title = "", description = "", backgroundName, ...attrs }) => {
   return (
-    <ContentCardStyled {...attrs}>
+    <ContentCardStyled backgroundName={backgroundName} {...attrs}>
       <ContentCardTitleStyled>{title}</ContentCardTitleStyled>
       <ContentCardDescriptionStyled>{description}</ContentCardDescriptionStyled>
     </ContentCardStyled>
@@ -13,5 +13,6 @@ export const ContentCard = ({ title = "", description = "", ...attrs }) => {
 
 ContentCard.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  backgroundName: PropTypes.string.isRequired
 };

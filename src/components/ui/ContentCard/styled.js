@@ -5,30 +5,29 @@ import guide from "../../../assets/images/content-cards/guide.png";
 import map from "../../../assets/images/content-cards/map.png";
 import zodiacSigns from "../../../assets/images/content-cards/zodiac-signs.png";
 
+const backgroundImages = {
+  map,
+  guide,
+  zodiacSigns,
+  couple
+};
+
 export const ContentCardStyled = styled.li`
   padding: 256px 80px 40px 80px;
   border-radius: 20px;
-  width: 48.5%;
+  width: 49%;
   background-position: top center;
-  background-size: 150%;
+  background-size: 140%;
   background-repeat: no-repeat;
   ${(props) =>
-    props.map &&
+    props.backgroundName &&
     `
-    background-image: url(${map});
-  `}${(props) =>
-    props.guide &&
-    `
-    background-image: url(${guide});
-  `}${(props) =>
-    props.zodiacSigns &&
-    `
-    background-image: url(${zodiacSigns});
-  `}${(props) =>
-    props.couple &&
-    `
-    background-image: url(${couple});
-  `}
+      background-image: url(${backgroundImages[props.backgroundName]});
+    `}
+
+  &:not(:nth-last-child(-n+2)) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const ContentCardTitleStyled = styled.h3`

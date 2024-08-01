@@ -49,7 +49,7 @@ export const MainForm = () => {
         control={control}
       />
       <BasicForm
-        style={{ marginTop: "80px", marginBottom: "80px" }}
+        style={{ marginTop: "80px" }}
         register={register}
         isSubmitting={isSubmitting}
         control={control}
