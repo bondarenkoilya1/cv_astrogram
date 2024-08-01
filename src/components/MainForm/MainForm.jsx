@@ -14,12 +14,15 @@ export const MainForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting }
+    formState: { errors, isSubmitting },
+    control
   } = useForm({
     resolver: zodResolver(mainFormSchema)
   });
 
-  const onSubmit = async (data) => data;
+  const onSubmit = async (data) => {
+    console.log(data);
+  };
 
   return (
     <MainFormStyled onSubmit={handleSubmit(onSubmit)}>
@@ -43,6 +46,7 @@ export const MainForm = () => {
         style={{ marginTop: "80px", marginBottom: "80px" }}
         register={register}
         isSubmitting={isSubmitting}
+        control={control}
       />
       {Object.keys(errors).length > 0 && (
         <h2>Пожалуйста проверьте правильность заполнения всех полей</h2>

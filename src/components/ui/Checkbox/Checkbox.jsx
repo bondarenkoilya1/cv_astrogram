@@ -2,15 +2,11 @@ import PropTypes from "prop-types";
 
 import { CheckboxCustomStyled, CheckboxSemanticStyled, LabelStyled } from "./styled";
 
-export const Checkbox = ({ children, isChecked, setIsChecked, type, ...attrs }) => {
+export const Checkbox = ({ children, isChecked = false, onChange = () => {}, type, ...attrs }) => {
   return (
     <LabelStyled type={type} {...attrs}>
       {/* hidden to be able to customize */}
-      <CheckboxSemanticStyled
-        type="checkbox"
-        checked={isChecked}
-        onChange={() => setIsChecked(!isChecked)}
-      />
+      <CheckboxSemanticStyled type="checkbox" checked={isChecked} onChange={onChange} />
       <CheckboxCustomStyled />
       {children}
     </LabelStyled>
@@ -19,7 +15,7 @@ export const Checkbox = ({ children, isChecked, setIsChecked, type, ...attrs }) 
 
 Checkbox.propTypes = {
   children: PropTypes.node.isRequired,
-  isChecked: PropTypes.bool.isRequired,
-  setIsChecked: PropTypes.func.isRequired,
+  isChecked: PropTypes.bool,
+  onChange: PropTypes.func,
   type: PropTypes.oneOf(["outline", "text", "squared"]).isRequired
 };
