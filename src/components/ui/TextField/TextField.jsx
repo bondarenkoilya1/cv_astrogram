@@ -1,23 +1,25 @@
+import { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 import { TextFieldContainerStyled, TextFieldLabelStyled, TextFieldStyled } from "./styled";
 
-export const TextField = ({ id, label, placeholder, type, ...attrs }) => {
+const TextField = forwardRef(({ id, label, placeholder, type = "text", name, ...attrs }, ref) => {
   return (
     <TextFieldContainerStyled {...attrs}>
       <TextFieldLabelStyled htmlFor={id}>{label}</TextFieldLabelStyled>
-      <TextFieldStyled id={id} placeholder={placeholder} type={type} />
+      <TextFieldStyled id={id} placeholder={placeholder} type={type} ref={ref} name={name} />
     </TextFieldContainerStyled>
   );
-};
+});
+
+TextField.displayName = "TextField";
 
 TextField.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(["text", "number", "email", "phone"])
+  type: PropTypes.oneOf(["text", "number", "email", "phone"]),
+  name: PropTypes.string.isRequired
 };
 
-TextField.defaultProps = {
-  type: "text"
-};
+export { TextField };
