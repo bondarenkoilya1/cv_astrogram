@@ -25,7 +25,7 @@ export const BasicForm = () => {
   ];
 
   return (
-    <BasicFormStyled style={{ marginTop: "30px", marginBottom: "130px" }}>
+    <BasicFormStyled style={{ marginTop: "80px", marginBottom: "130px" }}>
       <BasicFormTitleStyled>Оформление</BasicFormTitleStyled>
       <BasicFormContainerStyled style={{ marginTop: "20px" }}>
         <TextField
