@@ -4,7 +4,7 @@ import { RadioGroupListStyled, RadioGroupStyled, RadioGroupTitleStyled } from ".
 
 import { RadioButton } from "../RadioButton";
 
-export const RadioGroup = ({ array, selectedValue, setSelectedValue, title }) => {
+export const RadioGroup = ({ array, selectedValue, setSelectedValue, title = "" }) => {
   return (
     <RadioGroupStyled>
       {title && <RadioGroupTitleStyled>{title}</RadioGroupTitleStyled>}
@@ -37,8 +37,4 @@ RadioGroup.propTypes = {
   selectedValue: PropTypes.string.isRequired,
   setSelectedValue: PropTypes.func.isRequired,
   title: PropTypes.string
-};
-
-RadioGroup.defaultProps = {
-  title: ""
 };
