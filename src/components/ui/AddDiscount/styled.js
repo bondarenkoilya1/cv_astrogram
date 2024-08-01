@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const AddDiscountStyled = styled.section`
-  width: 750px;
   border-radius: 20px;
   padding: 40px 0 30px 40px;
   background: linear-gradient(273.08deg, #350a6f 0.8%, #390a74 59.11%, #6521a8 97.19%);
