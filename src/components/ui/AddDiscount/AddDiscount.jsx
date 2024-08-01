@@ -1,4 +1,5 @@
 import React from "react";
+import { Controller } from "react-hook-form";
 import PropTypes from "prop-types";
 
 import { VerticalLineStyled } from "../../../styled";
@@ -23,9 +24,7 @@ const renderPrice = (currentPrice, oldPrice) => {
   );
 };
 
-export const AddDiscount = ({ discount, currentPrice, oldPrice, ...attrs }) => {
-  const [data, setData] = React.useState(false);
-
+export const AddDiscount = ({ discount, currentPrice, oldPrice, control = {}, ...attrs }) => {
   return (
     <AddDiscountStyled {...attrs}>
       <AddDiscountTitleStyled>Получите весь набор со скидкой {discount}%</AddDiscountTitleStyled>
@@ -33,9 +32,16 @@ export const AddDiscount = ({ discount, currentPrice, oldPrice, ...attrs }) => {
         Получите все дополнительные блоки гороскопа со скидкой
       </AddDiscountDescriptionStyled>
       <AddDiscountContainerStyled>
-        <Checkbox isChecked={data} setIsChecked={setData} type="outline">
-          {data ? "Добавлено" : "Добавить к заказу"}
-        </Checkbox>
+        <Controller
+          name="addDiscount"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Checkbox isChecked={value} onChange={() => onChange(!value)} type="outline">
+              {value ? "Добавлено" : "Добавить к заказу"}
+            </Checkbox>
+          )}
+        />
+
         <VerticalLineStyled defaultMargin />
         {renderPrice(currentPrice, oldPrice)}
       </AddDiscountContainerStyled>
@@ -46,5 +52,6 @@ export const AddDiscount = ({ discount, currentPrice, oldPrice, ...attrs }) => {
 AddDiscount.propTypes = {
   discount: PropTypes.number.isRequired,
   currentPrice: PropTypes.number.isRequired,
-  oldPrice: PropTypes.number.isRequired
+  oldPrice: PropTypes.number.isRequired,
+  control: PropTypes.object
 };

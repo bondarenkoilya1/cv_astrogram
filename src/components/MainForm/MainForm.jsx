@@ -41,7 +41,13 @@ export const MainForm = () => {
         title="Дополнительно"
         style={{ marginTop: "60px" }}
       />
-      <AddDiscount discount={25} currentPrice={563} oldPrice={750} style={{ marginTop: "40px" }} />
+      <AddDiscount
+        discount={25}
+        currentPrice={563}
+        oldPrice={750}
+        style={{ marginTop: "40px" }}
+        control={control}
+      />
       <BasicForm
         style={{ marginTop: "80px", marginBottom: "80px" }}
         register={register}
