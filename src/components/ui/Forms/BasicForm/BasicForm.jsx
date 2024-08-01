@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Controller } from "react-hook-form";
 import PropTypes from "prop-types";
 
 import {
@@ -12,20 +13,13 @@ import {
   BasicFormTitleStyled
 } from "./styled.js";
 
+import { mainFormRadioGroup } from "../../../../data";
 import { Button } from "../../Button";
 import { Checkbox } from "../../Checkbox";
 import { RadioGroup } from "../../RadioGroup";
 import { TextField } from "../../TextField";
 
-import { Controller } from "react-hook-form";
-
 export const BasicForm = ({ register, isSubmitting = false, control, ...attrs }) => {
-  const [selectedRadio, setSelectedRadio] = useState("");
-  const radioGroupArray = [
-    { name: "sex", text: "Мужской", value: "male" },
-    { name: "sex", text: "Женский", value: "female" }
-  ];
-
   return (
     <BasicFormStyled {...attrs}>
       <BasicFormTitleStyled>Оформление</BasicFormTitleStyled>
@@ -38,11 +32,17 @@ export const BasicForm = ({ register, isSubmitting = false, control, ...attrs })
           {...register("name")}
           name="name"
         />
-        <RadioGroup
-          array={radioGroupArray}
-          setSelectedValue={setSelectedRadio}
-          selectedValue={selectedRadio}
-          title="Ваш пол"
+        <Controller
+          name="sex"
+          control={control}
+          render={({ field: { onChange, value = "" } }) => (
+            <RadioGroup
+              array={mainFormRadioGroup}
+              selectedValue={value}
+              onChange={onChange}
+              title="Ваш пол"
+            />
+          )}
         />
       </BasicFormContainerStyled>
       <TextField
