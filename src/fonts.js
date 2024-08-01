@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-import Forlihten from "./assets/fonts/Forlihten.woff2";
+import Foglihten from "./assets/fonts/Foglihten.woff2";
 import SFProTextBold from "./assets/fonts/SFProTextBold.woff2";
 import SFProTextRegular from "./assets/fonts/SFProTextRegular.woff2";
 import SpaceGroteskBold from "./assets/fonts/SpaceGroteskBold.woff2";
@@ -8,10 +8,10 @@ import SpaceGroteskRegular from "./assets/fonts/SpaceGroteskRegular.woff2";
 
 export const connectFonts = css`
   @font-face {
-    font-family: "Forlihten";
+    font-family: "Foglihten";
     src:
-      local("Forlihten"),
-      url(${Forlihten}) format("woff2");
+      local("Foglihten"),
+      url(${Foglihten}) format("woff2");
     font-stretch: normal;
     font-style: normal;
     font-weight: 400;

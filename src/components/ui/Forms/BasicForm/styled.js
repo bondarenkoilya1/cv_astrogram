@@ -4,7 +4,13 @@ import styled from "@emotion/styled";
 
 export const BasicFormStyled = styled.div``;
 
-export const BasicFormTitleStyled = styled.h2``;
+export const BasicFormTitleStyled = styled.h2`
+  font-family: "Foglihten", serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  text-transform: uppercase;
+`;
 
 export const BasicFormContainerStyled = styled.div`
   display: flex;
