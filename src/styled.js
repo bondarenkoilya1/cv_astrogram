@@ -65,6 +65,14 @@ export const sliderStyled = css`
     background-repeat: no-repeat;
     background-position: center;
   }
+
+  .slick-slider {
+    margin-inline: -30px;
+  }
+
+  .slick-slide > div {
+    margin-inline: 10px;
+  }
 `;
 
 export const GlobalStyle = css`
