@@ -13,9 +13,9 @@ export const QuoteCard = ({ title, description = [], ...attrs }) => {
       <QuoteCardTitleStyled>{title}</QuoteCardTitleStyled>
       <QuoteCardDescriptionListStyled>
         {description &&
-          description.map((item) => (
+          description.map((description) => (
             <QuoteCardDescriptionStyled key={crypto.randomUUID()}>
-              {item}
+              {description}
             </QuoteCardDescriptionStyled>
           ))}
       </QuoteCardDescriptionListStyled>
