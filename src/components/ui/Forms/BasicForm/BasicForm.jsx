@@ -11,7 +11,7 @@ import {
   BasicFormPriceSubtitleStyled,
   BasicFormStyled,
   BasicFormTitleStyled
-} from "./styled.js";
+} from "./styled";
 
 import { mainFormRadioGroup } from "../../../../data";
 import { Button } from "../../Button";

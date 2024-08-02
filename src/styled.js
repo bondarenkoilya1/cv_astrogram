@@ -6,9 +6,26 @@ import styled from "@emotion/styled";
 
 import { connectFonts } from "./fonts";
 
+export const sliderStyled = css`
+  .slick-dots {
+    bottom: -55px;
+  }
+
+  .slick-dots li button:before {
+    color: #ada4e7;
+    opacity: 1;
+    font-size: 10px;
+  }
+
+  .slick-dots li.slick-active button:before {
+    color: #5846fb;
+  }
+`;
+
 export const GlobalStyle = css`
   ${emotionNormalize}
   ${connectFonts}
+  ${sliderStyled}
 	
 	html {
     box-sizing: border-box;
