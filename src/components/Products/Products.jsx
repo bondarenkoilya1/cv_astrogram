@@ -3,13 +3,12 @@ import PropTypes from "prop-types";
 
 import {
   ProductsButtonContainerStyled,
-  ProductsButtonStyled,
   ProductsDescriptionStyled,
   ProductsStyled,
   ProductsTitleStyled
 } from "./styled";
 
-import { BlogProductsSlider, MainProductsSlider } from "../ui";
+import { BlogProductsSlider, Link, MainProductsSlider } from "../ui";
 
 const renderSlider = (type, array) => {
   if (type === "blog") {
@@ -26,7 +25,7 @@ export const Products = ({ title, description, array, type, ...attrs }) => {
       <ProductsDescriptionStyled>{description}</ProductsDescriptionStyled>
       {renderSlider(type, array)}
       <ProductsButtonContainerStyled>
-        <ProductsButtonStyled to="/">Смотреть все</ProductsButtonStyled>
+        <Link defaultPadding>Смотреть все</Link>
       </ProductsButtonContainerStyled>
     </ProductsStyled>
   );
