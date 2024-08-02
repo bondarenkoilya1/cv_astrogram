@@ -7,16 +7,19 @@ const backgroundImages = {
 };
 
 export const PersonCardStyled = styled.li`
-  padding: 580px 65px 50px 65px;
+  padding: 65px 50px 65px 65px;
   border-radius: 60px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   ${(props) =>
     props.backgroundName &&
     `
       background-image: url(${backgroundImages[props.backgroundName]});
-    `}
+    `};
 `;
 
 export const PersonCardTitleStyled = styled.h4`
