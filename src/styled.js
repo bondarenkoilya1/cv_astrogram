@@ -4,6 +4,8 @@ import { css } from "@emotion/react";
 
 import styled from "@emotion/styled";
 
+import leftArrowIcon from "./assets/images/slider/left-arrow.svg";
+import rightArrowIcon from "./assets/images/slider/right-arrow.svg";
 import { connectFonts } from "./fonts";
 
 export const sliderStyled = css`
@@ -19,6 +21,49 @@ export const sliderStyled = css`
 
   .slick-dots li.slick-active button:before {
     color: #5846fb;
+  }
+
+  .slick-arrow::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slick-prev {
+    left: -60px;
+  }
+
+  .slick-next {
+    right: -40px;
+  }
+
+  .slick-prev::before {
+    background: url(${leftArrowIcon}), #2e2c41;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .slick-next::before {
+    background: url(${rightArrowIcon}), #2e2c41;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .slick-prev:hover::before {
+    background: url(${leftArrowIcon}), linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .slick-next:hover::before {
+    background: url(${rightArrowIcon}), linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
+    background-repeat: no-repeat;
+    background-position: center;
   }
 `;
 
