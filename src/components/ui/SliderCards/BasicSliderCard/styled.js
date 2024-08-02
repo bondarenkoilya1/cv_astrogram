@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 
 export const BasicSliderCardStyled = styled.li`
-  width: 288px;
   background-color: #1e1d29;
   border-radius: 10px;
   display: flex;
