@@ -23,7 +23,7 @@ export const BasicSliderCardContentStyled = styled.li`
 `;
 
 export const BasicSliderCardCategoryStyled = styled.h5`
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
