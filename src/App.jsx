@@ -12,7 +12,9 @@ export const App = () => {
     <Router>
       <Global styles={GlobalStyle} />
       <Header />
-      <Layout />
+      <main>
+        <Layout />
+      </main>
       <Footer />
     </Router>
   );
