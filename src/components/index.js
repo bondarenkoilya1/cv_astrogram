@@ -4,3 +4,4 @@ export * from "./Footer";
 export * from "./HoroscopeComposition";
 export * from "./HoroscopeContent";
 export * from "./MainForm";
+export * from "./GetAnswers";
