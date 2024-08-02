@@ -33,9 +33,9 @@ const renderPrice = (currentPrice, oldPrice) => {
   );
 };
 
-export const BasicSliderCard = ({ imageSrc, category, title, currentPrice, oldPrice }) => {
+export const BasicSliderCard = ({ imageSrc, category, title, currentPrice, oldPrice, key }) => {
   return (
-    <BasicSliderCardStyled>
+    <BasicSliderCardStyled key={key}>
       <BasicSliderCardImageStyled src={imageSrc} alt={title} />
       <BasicSliderCardContentStyled>
         <BasicSliderCardCategoryStyled>{category}</BasicSliderCardCategoryStyled>
@@ -56,5 +56,6 @@ BasicSliderCard.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   currentPrice: PropTypes.number,
-  oldPrice: PropTypes.number
+  oldPrice: PropTypes.number,
+  key: PropTypes.string
 };
