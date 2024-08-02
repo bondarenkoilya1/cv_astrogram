@@ -1,8 +1,8 @@
 import React from "react";
-import SliderComponent from "react-slick";
+import Slider from "react-slick";
 import PropTypes from "prop-types";
 
-import { BasicSliderCard } from "../SliderCards/BasicSliderCard/index.js";
+import { BasicSliderCard } from "../../SliderCards";
 
 const defaultSettings = {
   dots: true,
@@ -12,10 +12,10 @@ const defaultSettings = {
   slidesToScroll: 5
 };
 
-export const Slider = ({ array, ...attrs }) => {
+export const MainProductsSlider = ({ array, ...attrs }) => {
   return (
     <div className="slider-container" {...attrs}>
-      <SliderComponent {...defaultSettings}>
+      <Slider {...defaultSettings}>
         {array.map(({ imageSrc, category, title, currentPrice, oldPrice }) => (
           <BasicSliderCard
             imageSrc={imageSrc}
@@ -26,11 +26,11 @@ export const Slider = ({ array, ...attrs }) => {
             key={crypto.randomUUID()}
           />
         ))}
-      </SliderComponent>
+      </Slider>
     </div>
   );
 };
 
-Slider.propTypes = {
+MainProductsSlider.propTypes = {
   array: PropTypes.array.isRequired
 };

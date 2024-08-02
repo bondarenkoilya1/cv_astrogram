@@ -10,4 +10,4 @@ export * from "./Forms";
 export * from "./ContentCard";
 export * from "./PersonCard";
 export * from "./QuoteCard";
-export * from "./Slider";
+export * from "./Sliders";
