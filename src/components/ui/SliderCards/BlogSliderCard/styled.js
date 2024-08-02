@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styled from "@emotion/styled";
 
 export const BlogSliderCardStyled = styled.li`
@@ -5,6 +7,8 @@ export const BlogSliderCardStyled = styled.li`
   flex-direction: column;
   justify-content: space-between;
 `;
+
+export const BlogSliderCardLinkStyled = styled(Link)``;
 
 export const BlogSliderCardImageStyled = styled.img``;
 

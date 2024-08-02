@@ -4,7 +4,7 @@ import { ContainerStyled } from "../../styled";
 import { HoroscopesContainerStyled } from "./styled";
 
 import { GetAnswers, HoroscopeContent, MainForm, Products } from "../../components";
-import { horoscopeContentList, otherProductsList, productsList } from "../../data";
+import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
 
 export const Horoscopes = () => {
   return (
@@ -24,7 +24,14 @@ export const Horoscopes = () => {
         title="Другие гороскопы"
         description="У нас есть ответы и на другие составляющие твоей жизни"
         array={otherProductsList}
+        style={{ marginTop: "120px" }}
+      />
+      <Products
+        title="Блог"
+        description="Читайте статьи о любовных гороскопах"
+        array={blogPostsList}
         style={{ marginTop: "120px", marginBottom: "120px" }}
+        type="blog"
       />
     </ContainerStyled>
   );
