@@ -9,14 +9,22 @@ import {
   ProductsTitleStyled
 } from "./styled";
 
-import { MainProductsSlider } from "../ui";
+import { BlogProductsSlider, MainProductsSlider } from "../ui";
 
-export const Products = ({ title, description, array, ...attrs }) => {
+const renderSlider = (type, array) => {
+  if (type === "blog") {
+    return <BlogProductsSlider array={array} style={{ marginTop: "40px" }}></BlogProductsSlider>;
+  }
+
+  return <MainProductsSlider array={array} style={{ marginTop: "40px" }} />;
+};
+
+export const Products = ({ title, description, array, type, ...attrs }) => {
   return (
     <ProductsStyled {...attrs}>
       <ProductsTitleStyled>{title}</ProductsTitleStyled>
       <ProductsDescriptionStyled>{description}</ProductsDescriptionStyled>
-      <MainProductsSlider array={array} style={{ marginTop: "40px" }} />
+      {renderSlider(type, array)}
       <ProductsButtonContainerStyled>
         <ProductsButtonStyled to="/">Смотреть все</ProductsButtonStyled>
       </ProductsButtonContainerStyled>
@@ -27,5 +35,6 @@ export const Products = ({ title, description, array, ...attrs }) => {
 Products.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  array: PropTypes.array.isRequired
+  array: PropTypes.array.isRequired,
+  type: PropTypes.string
 };
