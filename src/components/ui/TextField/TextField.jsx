@@ -36,7 +36,7 @@ const TextField = forwardRef((props, ref) => {
             name={name}
             id={id}
             placeholder={placeholder}
-            autocomplete="off"
+            autoComplete="off"
             {...attrs}
           />
         </TextFieldMaskedFieldContainerStyled>
