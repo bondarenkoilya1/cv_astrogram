@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 import { ContainerStyled } from "../../styled";
 import { HoroscopesContainerStyled } from "./styled";
@@ -42,6 +43,10 @@ const Main = ({ nextStep }) => {
   );
 };
 
+Main.propTypes = {
+  nextStep: PropTypes.func.isRequired
+};
+
 import woman from "../../assets/images/woman.png";
 import {
   BirthForm,
@@ -53,9 +58,7 @@ import {
 } from "../../components";
 import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
 
-export const Horoscopes = (props) => {
-  const { stage, nextStep, prevStep } = props;
-
+export const Horoscopes = ({ stage, nextStep, prevStep }) => {
   switch (stage) {
     case 1:
       return <Main nextStep={nextStep} />;
@@ -90,4 +93,10 @@ export const Horoscopes = (props) => {
     default:
       return null;
   }
+};
+
+Horoscopes.propTypes = {
+  nextStep: PropTypes.func.isRequired,
+  prevStep: PropTypes.func.isRequired,
+  stage: PropTypes.number.isRequired
 };

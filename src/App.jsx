@@ -40,7 +40,7 @@ export const App = () => {
       <main>
         <Layout stage={stage} nextStep={nextStep} prevStep={prevStep} />
       </main>
-      <Footer />
+      <Footer stage={stage} />
     </Router>
   );
 };
