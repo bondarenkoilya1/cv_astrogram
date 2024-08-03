@@ -3,12 +3,20 @@ import React from "react";
 import { ContainerStyled } from "../../styled";
 import { HoroscopesContainerStyled } from "./styled";
 
-import { GetAnswers, HoroscopeContent, MainForm, Products } from "../../components";
+import woman from "../../assets/images/woman.png";
+import { GetAnswers, HoroscopeContent, Image, MainForm, Products } from "../../components";
 import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
 
 export const Horoscopes = () => {
   return (
     <ContainerStyled>
+      <Image
+        src={woman}
+        alt="Woman with a heart"
+        width="100%"
+        height="560px"
+        style={{ marginBottom: "60px" }}
+      />
       <HoroscopesContainerStyled>
         <MainForm />
       </HoroscopesContainerStyled>
