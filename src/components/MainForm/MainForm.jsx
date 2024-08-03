@@ -47,7 +47,7 @@ export const MainForm = () => {
         render={({ field: { value } }) => (
           <HoroscopeComposition
             array={value}
-            title="Состав гороскопа (Main & Gift)"
+            title="Состав гороскопа"
             style={{ marginTop: "60px" }}
           />
         )}

@@ -1,9 +1,48 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 
-import { TextFieldContainerStyled, TextFieldLabelStyled, TextFieldStyled } from "./styled";
+import {
+  TextFieldContainerStyled,
+  TextFieldLabelStyled,
+  TextFieldMaskedContainerStyled,
+  TextFieldMaskedFieldContainerStyled,
+  TextFieldMaskedImageStyled,
+  TextFieldMaskedStyled,
+  TextFieldStyled
+} from "./styled";
 
-const TextField = forwardRef(({ id, label, placeholder, type = "text", name, ...attrs }, ref) => {
+const TextField = forwardRef((props, ref) => {
+  const {
+    id,
+    label,
+    placeholder,
+    type = "text",
+    name,
+    masked = false,
+    imageAttrs = { src: "", alt: "", width: "", height: "" },
+    ...attrs
+  } = props;
+
+  const { src, alt, width, height } = imageAttrs;
+
+  if (masked)
+    return (
+      <TextFieldMaskedContainerStyled>
+        <TextFieldLabelStyled>{label}</TextFieldLabelStyled>
+        <TextFieldMaskedFieldContainerStyled>
+          {src && <TextFieldMaskedImageStyled src={src} alt={alt} width={width} height={height} />}
+          <TextFieldMaskedStyled
+            ref={ref}
+            name={name}
+            id={id}
+            placeholder={placeholder}
+            autoComplete="off"
+            {...attrs}
+          />
+        </TextFieldMaskedFieldContainerStyled>
+      </TextFieldMaskedContainerStyled>
+    );
+
   return (
     <TextFieldContainerStyled {...attrs}>
       <TextFieldLabelStyled htmlFor={id}>{label}</TextFieldLabelStyled>
@@ -19,7 +58,14 @@ TextField.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.oneOf(["text", "number", "email", "phone"]),
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  masked: PropTypes.bool,
+  imageAttrs: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    width: PropTypes.string,
+    height: PropTypes.string
+  })
 };
 
 export { TextField };
