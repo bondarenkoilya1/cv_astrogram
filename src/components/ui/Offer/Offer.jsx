@@ -16,7 +16,7 @@ export const Offer = ({ imageSrc, imageAlt, title, description, linkText, ...att
       <OfferTitleStyled>{title}</OfferTitleStyled>
       <OfferDescriptionStyled>{description}</OfferDescriptionStyled>
       <OfferLinkContainerStyled>
-        <Link smallPadding>{linkText}</Link>
+        <Link smallpadding="true">{linkText}</Link>
       </OfferLinkContainerStyled>
     </OfferStyled>
   );

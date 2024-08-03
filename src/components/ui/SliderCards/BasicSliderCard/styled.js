@@ -14,7 +14,7 @@ export const BasicSliderCardImageStyled = styled.img`
   margin-bottom: -27px;
 `;
 
-export const BasicSliderCardContentStyled = styled.li`
+export const BasicSliderCardContentStyled = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;

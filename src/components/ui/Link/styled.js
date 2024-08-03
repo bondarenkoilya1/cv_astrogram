@@ -10,12 +10,12 @@ export const LinkStyled = styled(Link)`
   border-radius: 100px;
   border: 1px solid #464168;
   ${(props) =>
-    props.smallPadding &&
+    props.smallpadding &&
     `
       padding: 14px 30px;
     `}
   ${(props) =>
-    props.defaultPadding &&
+    props.defaultpadding &&
     `
       padding: 20px 30px;
     `}

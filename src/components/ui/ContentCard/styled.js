@@ -25,7 +25,7 @@ export const ContentCardStyled = styled.li`
       background-image: url(${backgroundImages[props.backgroundName]});
     `}
 
-  &:not(:nth-last-child(-n+2)) {
+  &:not(:nth-last-of-type(-n+2)) {
     margin-bottom: 20px;
   }
 `;
