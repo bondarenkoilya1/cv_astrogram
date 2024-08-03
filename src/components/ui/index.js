@@ -12,3 +12,4 @@ export * from "./PersonCard";
 export * from "./QuoteCard";
 export * from "./Sliders";
 export * from "./Link";
+export * from "./Offer";

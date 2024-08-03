@@ -7,7 +7,7 @@ import {
   OfferTitleStyled
 } from "./styled";
 
-import { Image, Link } from "../ui";
+import { Image, Link } from "../index.js";
 
 export const Offer = ({ imageSrc, imageAlt, title, description, linkText, ...attrs }) => {
   return (
