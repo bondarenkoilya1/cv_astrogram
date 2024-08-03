@@ -14,24 +14,24 @@ import {
 
 import { Checkbox } from "../Checkbox";
 
-const renderCheckbox = (type, isChecked, handleProductCardClick) => {
+const renderCheckbox = (type, isChecked) => {
   switch (type) {
     case "main":
       return (
-        <Checkbox isChecked={isChecked} setIsChecked={handleProductCardClick} type="text">
+        <Checkbox isChecked={isChecked} type="text">
           {isChecked ? "В составе" : "Добавить"}
         </Checkbox>
       );
     case "gift":
       return (
-        <Checkbox isChecked={isChecked} setIsChecked={handleProductCardClick} type="text">
+        <Checkbox isChecked={isChecked} type="text">
           {isChecked ? "В подарок " : "Добавить "}
         </Checkbox>
       );
     case "additional":
       return (
         <ProductCardContainerStyled>
-          <Checkbox isChecked={isChecked} setIsChecked={handleProductCardClick} type="text">
+          <Checkbox isChecked={isChecked} type="text">
             {isChecked ? "В составе" : "Добавить"}
           </Checkbox>
           <VerticalLineStyled smallMargin />
@@ -43,21 +43,20 @@ const renderCheckbox = (type, isChecked, handleProductCardClick) => {
   }
 };
 
-export const ProductCard = ({ type, subtitle, title, ...attrs }) => {
-  const initialCheckedState = type === "gift";
-  const [isChecked, setIsChecked] = React.useState(initialCheckedState);
-
-  const handleProductCardClick = () => setIsChecked((prevChecked) => !prevChecked);
+export const ProductCard = ({ type, subtitle, title, isChecked, onChange, ...attrs }) => {
+  const handleProductCardClick = () => {
+    if (onChange) {
+      onChange(!isChecked);
+    }
+  };
 
   return (
-    <ProductCardStyled onClick={handleProductCardClick} {...attrs}>
+    <ProductCardStyled {...attrs} onClick={handleProductCardClick}>
       <ProductCardContentStyled>
         <ProductCardSubtitleStyled>{subtitle}</ProductCardSubtitleStyled>
         <ProductCardTitleStyled>{title}</ProductCardTitleStyled>
       </ProductCardContentStyled>
-      <ProductCardFooterStyled>
-        {renderCheckbox(type, isChecked, handleProductCardClick)}
-      </ProductCardFooterStyled>
+      <ProductCardFooterStyled>{renderCheckbox(type, isChecked)}</ProductCardFooterStyled>
     </ProductCardStyled>
   );
 };
@@ -65,5 +64,7 @@ export const ProductCard = ({ type, subtitle, title, ...attrs }) => {
 ProductCard.propTypes = {
   type: PropTypes.oneOf(["main", "additional", "gift"]).isRequired,
   subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  isChecked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func
 };
