@@ -1,15 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { ContainerStyled } from "../../styled";
 import { HoroscopesContainerStyled } from "./styled";
 
-import woman from "../../assets/images/woman.png";
-import { GetAnswers, HoroscopeContent, Image, MainForm, Products } from "../../components";
-import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
-
-export const Horoscopes = () => {
+const Main = ({ nextStep }) => {
   return (
     <ContainerStyled>
+      <button onClick={nextStep}>Next step</button>
       <Image
         src={woman}
         alt="Woman with a heart"
@@ -43,4 +41,62 @@ export const Horoscopes = () => {
       />
     </ContainerStyled>
   );
+};
+
+Main.propTypes = {
+  nextStep: PropTypes.func.isRequired
+};
+
+import woman from "../../assets/images/woman.png";
+import {
+  BirthForm,
+  GetAnswers,
+  HoroscopeContent,
+  Image,
+  MainForm,
+  Products
+} from "../../components";
+import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
+
+export const Horoscopes = ({ stage, nextStep, prevStep }) => {
+  switch (stage) {
+    case 1:
+      return <Main nextStep={nextStep} />;
+    case 2:
+      return (
+        <div style={{ maxWidth: "750px", margin: "0 auto" }}>
+          <BirthForm />
+          <button onClick={prevStep}>Prev</button>
+          <button onClick={nextStep}>Next</button>
+        </div>
+      );
+    case 3:
+      return (
+        <div>
+          3<button onClick={prevStep}>Prev</button>
+          <button onClick={nextStep}>Next</button>
+        </div>
+      );
+    case 4:
+      return (
+        <div>
+          4<button onClick={prevStep}>Prev</button>
+          <button onClick={nextStep}>Next</button>
+        </div>
+      );
+    case 5:
+      return (
+        <div>
+          5<button onClick={prevStep}>Prev</button>
+        </div>
+      );
+    default:
+      return null;
+  }
+};
+
+Horoscopes.propTypes = {
+  nextStep: PropTypes.func.isRequired,
+  prevStep: PropTypes.func.isRequired,
+  stage: PropTypes.number.isRequired
 };

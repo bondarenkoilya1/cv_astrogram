@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+export const FooterContainerStyled = styled.div`
+  margin-top: auto;
+`;
+
 export const FooterStyled = styled.footer`
   padding: 40px 0;
   border-top: 1px solid #2d2a41;
@@ -7,7 +11,6 @@ export const FooterStyled = styled.footer`
   font-family: "SF Pro Text", sans-serif;
   font-size: 14px;
   line-height: 19px;
-  margin-top: auto;
 `;
 
 export const FooterWrapperStyled = styled.div`

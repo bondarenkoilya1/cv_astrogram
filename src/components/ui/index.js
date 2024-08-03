@@ -14,3 +14,4 @@ export * from "./Sliders";
 export * from "./Link";
 export * from "./Offer";
 export * from "./Thanks";
+export * from "./ProgressBar";
