@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -17,7 +17,17 @@ export const MainForm = () => {
     formState: { errors, isSubmitting },
     control
   } = useForm({
-    resolver: zodResolver(mainFormSchema)
+    resolver: zodResolver(mainFormSchema),
+    defaultValues: {
+      productsMain: horoscopeCompositionMainList.map((product) => ({
+        ...product,
+        isChecked: true
+      })),
+      productsAdditional: horoscopeCompositionAdditionalList.map((product) => ({
+        ...product,
+        isChecked: false
+      }))
+    }
   });
 
   const onSubmit = async (data) => {
@@ -31,15 +41,28 @@ export const MainForm = () => {
         Пора менять свою жизнь к лучшему — закажите свой персональный гороскоп и откройте для себя
         мир новых возможностей в любви!
       </MainFormDescriptionStyled>
-      <HoroscopeComposition
-        array={horoscopeCompositionMainList}
-        title="Состав гороскопа"
-        style={{ marginTop: "60px" }}
+      <Controller
+        name="productsMain"
+        control={control}
+        render={({ field: { value } }) => (
+          <HoroscopeComposition
+            array={value}
+            title="Состав гороскопа (Main & Gift)"
+            style={{ marginTop: "60px" }}
+          />
+        )}
       />
-      <HoroscopeComposition
-        array={horoscopeCompositionAdditionalList}
-        title="Дополнительно"
-        style={{ marginTop: "60px" }}
+      <Controller
+        name="productsAdditional"
+        control={control}
+        render={({ field: { value, onChange } }) => (
+          <HoroscopeComposition
+            array={value}
+            title="Дополнительно"
+            onCheckboxChange={onChange}
+            style={{ marginTop: "60px" }}
+          />
+        )}
       />
       <AddDiscount
         discount={25}
