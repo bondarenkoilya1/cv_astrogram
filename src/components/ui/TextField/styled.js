@@ -35,7 +35,6 @@ export const TextFieldStyled = styled.input`
 export const TextFieldMaskedContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
 `;
 
 export const TextFieldMaskedFieldContainerStyled = styled.div`
