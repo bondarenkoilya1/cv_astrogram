@@ -25,7 +25,7 @@ export const Products = ({ title, description, array, type, ...attrs }) => {
       <ProductsDescriptionStyled>{description}</ProductsDescriptionStyled>
       {renderSlider(type, array)}
       <ProductsButtonContainerStyled>
-        <Link defaultPadding>Смотреть все</Link>
+        <Link defaultpadding="true">Смотреть все</Link>
       </ProductsButtonContainerStyled>
     </ProductsStyled>
   );

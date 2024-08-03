@@ -1,17 +1,12 @@
 import PropTypes from "prop-types";
 
-export const Image = ({ src, alt, width, height }) => {
-  return <img src={src} alt={alt} width={width} height={height} />;
+export const Image = ({ src, alt, width = "100px", height = "100px", ...attrs }) => {
+  return <img src={src} alt={alt} width={width} height={height} {...attrs} />;
 };
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  width: PropTypes.number,
-  height: PropTypes.number
-};
-
-Image.defaultProps = {
-  width: 100,
-  height: 100
+  width: PropTypes.string,
+  height: PropTypes.string
 };

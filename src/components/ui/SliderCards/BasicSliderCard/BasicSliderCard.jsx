@@ -39,11 +39,11 @@ export const BasicSliderCard = ({
   title,
   currentPrice,
   oldPrice,
-  key,
-  link
+  link,
+  ...attrs
 }) => {
   return (
-    <BasicSliderCardStyled key={key}>
+    <BasicSliderCardStyled {...attrs}>
       <BasicSliderCardImageStyled src={imageSrc} alt={title} />
       <BasicSliderCardContentStyled>
         <BasicSliderCardCategoryStyled>{category}</BasicSliderCardCategoryStyled>
@@ -65,6 +65,5 @@ BasicSliderCard.propTypes = {
   title: PropTypes.string.isRequired,
   currentPrice: PropTypes.number,
   oldPrice: PropTypes.number,
-  key: PropTypes.string,
   link: PropTypes.string
 };

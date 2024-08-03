@@ -6,4 +6,3 @@ export * from "./HoroscopeContent";
 export * from "./MainForm";
 export * from "./GetAnswers";
 export * from "./Products";
-export * from "./Offer";
