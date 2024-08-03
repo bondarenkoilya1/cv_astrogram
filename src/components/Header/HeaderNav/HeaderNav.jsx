@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import {
   HeaderNavListItemStyled,
   HeaderNavListStyled,
@@ -25,7 +27,9 @@ const renderNavList = (array) => {
 export const HeaderNav = () => {
   return (
     <HeaderNavStyled>
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
       {renderNavList(headerNavPages)}
     </HeaderNavStyled>
   );
