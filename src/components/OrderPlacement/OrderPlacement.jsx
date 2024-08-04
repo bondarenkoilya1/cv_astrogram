@@ -68,6 +68,9 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
   const userBirthAddress = userBirthInformation.birthAddress;
   // unused
   // const userBirthCoordinates = userBirthInformation.birthCoordinates;
+  const productsMain = userData.productsMain;
+  const productsAdditional = userData.productsAdditional;
+  const allProducts = [...productsMain, ...productsAdditional];
 
   const recipientArray = [
     { icon: <CalendarIcon />, text: userBirthday },
@@ -75,17 +78,9 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
     { icon: <MapIcon />, text: userBirthAddress }
   ];
 
-  const productsMain = userData.productsMain;
-  const productsAdditional = userData.productsAdditional;
-  const allProducts = [...productsMain, ...productsAdditional];
-
   const { productsChecked, productsUnchecked } = allProducts.reduce(
     (acc, { title, isChecked }) => {
-      if (isChecked) {
-        acc.productsChecked.push(title);
-      } else {
-        acc.productsUnchecked.push(title);
-      }
+      isChecked ? acc.productsChecked.push(title) : acc.productsUnchecked.push(title);
 
       return acc;
     },

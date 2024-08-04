@@ -1,11 +1,15 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { ContainerStyled } from "../../styled";
 import { HoroscopesContainerStyled } from "./styled";
 
 import woman from "../../assets/images/woman.png";
 import {
+  AddDiscount,
   BirthForm,
   GetAnswers,
   Gratitude,
@@ -16,11 +20,11 @@ import {
   Products
 } from "../../components";
 import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
+import { mainFormSchema } from "../../schemes/index.js";
 
 const Main = ({ nextStep }) => {
   return (
     <ContainerStyled>
-      <button onClick={nextStep}>Next step</button>
       <Image
         src={woman}
         alt="Woman with a heart"
@@ -29,7 +33,7 @@ const Main = ({ nextStep }) => {
         style={{ marginBottom: "60px" }}
       />
       <HoroscopesContainerStyled>
-        <MainForm />
+        <MainForm nextStep={nextStep} />
       </HoroscopesContainerStyled>
       <HoroscopeContent array={horoscopeContentList} style={{ marginTop: "120px" }} />
       <GetAnswers style={{ marginTop: "120px" }} />
@@ -61,6 +65,16 @@ Main.propTypes = {
 };
 
 export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
+  const savedData = JSON.parse(localStorage.getItem("data"));
+  console.log(savedData);
+
+  const { control } = useForm({
+    resolver: zodResolver(mainFormSchema),
+    defaultValues: {
+      addDiscount: savedData.addDiscount
+    }
+  });
+
   switch (stage) {
     case 1:
       return <Main nextStep={nextStep} />;
@@ -74,7 +88,15 @@ export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
       return (
         <HoroscopesContainerStyled>
           3<button onClick={prevStep}>Prev</button>
-          <button onClick={nextStep}>Next</button>
+          <button onClick={nextStep}>Next</button>`
+          <AddDiscount
+            discount={25}
+            currentPrice={563}
+            oldPrice={750}
+            style={{ marginTop: "40px" }}
+            control={control}
+            checked={savedData.addDiscount}
+          />
         </HoroscopesContainerStyled>
       );
     case 4:

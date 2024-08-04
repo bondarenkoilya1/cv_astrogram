@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,11 +20,21 @@ import { birthFormSchema } from "../../schemes";
 import { OrderButtonGroup, RadioButton, TextField } from "../ui";
 
 export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
-  const { register, handleSubmit, setValue, watch } = useForm({
+  const {
+    control,
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors }
+  } = useForm({
     resolver: zodResolver(birthFormSchema),
     defaultValues: {
       birthtime: "",
-      birthtimeRadio: false
+      birthtimeRadio: false,
+      birthday: "",
+      birthAddress: "",
+      birthCoordinates: ""
     }
   });
 
@@ -37,15 +47,8 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
     }
   }, [birthtime, setValue]);
 
-  useEffect(() => {
-    if (birthtimeRadio) {
-      setValue("birthtime", "");
-    }
-  }, [birthtimeRadio, setValue]);
-
   const onSubmit = (data) => {
     localStorage.setItem("birthInformation", JSON.stringify(data));
-
     nextStep();
   };
 
@@ -53,7 +56,7 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
   const timeMask = [/\d/, /\d/, ":", /\d/, /\d/];
 
   return (
-    <BirthFormStyled {...attrs} onSubmit={handleSubmit((data) => console.log(data))}>
+    <BirthFormStyled {...attrs} onSubmit={handleSubmit(onSubmit)}>
       <BirthFormTitleStyled>Информация о рождении</BirthFormTitleStyled>
       <BirthFormContainerStyled>
         <TextField
@@ -69,23 +72,35 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
           onChange={(e) => setValue("birthday", e.target.value)}
         />
         <BirthFormBirthtimeContainerStyled>
-          <TextField
-            masked={true}
-            imageAttrs={{ src: clock, alt: "Clock icon", width: "20px", height: "20px" }}
-            mask={timeMask}
-            placeholder="00:00"
-            id="birthtime"
-            label="Время рождения"
+          <Controller
             name="birthtime"
-            style={{ width: "222px", marginRight: "10px" }}
-            {...register("birthtime")}
-            onChange={(e) => setValue("birthtime", e.target.value)}
+            control={control}
+            render={({ field }) => (
+              <TextField
+                masked={true}
+                imageAttrs={{ src: clock, alt: "Clock icon", width: "20px", height: "20px" }}
+                mask={timeMask}
+                placeholder="00:00"
+                id="birthtime"
+                label="Время рождения"
+                style={{ width: "222px", marginRight: "10px" }}
+                {...field}
+                onChange={(e) => field.onChange(e)}
+                error={errors.birthtime?.message}
+              />
+            )}
           />
           <RadioButton
-            onChange={() => setValue("birthtimeRadio", !birthtimeRadio)}
+            onChange={() => {
+              const newValue = !birthtimeRadio;
+              setValue("birthtimeRadio", newValue);
+              if (newValue) {
+                setValue("birthtime", ""); // Reset birthtime input when radio button is clicked
+              }
+            }}
             name="birthtime-radio"
             checked={birthtimeRadio}
-            value="birthtme-radio">
+            value="birthtime-radio">
             Я не знаю время
           </RadioButton>
         </BirthFormBirthtimeContainerStyled>
