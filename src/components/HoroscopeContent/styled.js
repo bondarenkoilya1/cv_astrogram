@@ -13,6 +13,11 @@ export const HoroscopeContentTitleStyled = styled.h2`
   text-transform: uppercase;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 700px) {
+    font-size: 30px;
+    line-height: 36px;
+  }
 `;
 
 export const HoroscopeContentListStyled = styled.ul`
@@ -20,4 +25,8 @@ export const HoroscopeContentListStyled = styled.ul`
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 60px;
+
+  @media screen and (max-width: 890px) {
+    margin-top: 30px;
+  }
 `;
