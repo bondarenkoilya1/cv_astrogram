@@ -1,4 +1,7 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   BirthFormBirthtimeContainerStyled,
@@ -12,15 +15,24 @@ import {
 
 import calendar from "../../../../assets/images/calendar.svg";
 import clock from "../../../../assets/images/clock.svg";
+import { birthFormSchema } from "../../../../schemes";
 import { RadioButton } from "../../RadioButton";
 import { TextField } from "../../TextField";
 
 export const BirthForm = ({ ...attrs }) => {
+  const { register, handleSubmit, setValue } = useForm({
+    resolver: zodResolver(birthFormSchema)
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   const birthMask = [/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/];
   const timeMask = [/\d/, /\d/, ":", /\d/, /\d/];
 
   return (
-    <BirthFormStyled {...attrs}>
+    <BirthFormStyled {...attrs} onSubmit={handleSubmit(onSubmit)}>
       <BirthFormTitleStyled>Информация о рождении</BirthFormTitleStyled>
       <BirthFormContainerStyled>
         <TextField
@@ -32,6 +44,8 @@ export const BirthForm = ({ ...attrs }) => {
           label="Дата рождения"
           name="birthday"
           style={{ width: "300px" }}
+          {...register("birthday")}
+          onChange={(e) => setValue("birthday", e.target.value)}
         />
         <BirthFormBirthtimeContainerStyled>
           <TextField
@@ -66,6 +80,7 @@ export const BirthForm = ({ ...attrs }) => {
           name="birth-address"
           label="Адрес рождения"
           placeholder="Введите адрес"
+          {...register("birthAddress")}
         />
         <TextField
           id="birth-coordinates"
@@ -73,8 +88,10 @@ export const BirthForm = ({ ...attrs }) => {
           label="Координаты рождения (для более точных данных, по желанию)"
           placeholder="Введите координаты"
           style={{ marginTop: "40px" }}
+          {...register("birthCoordinates")}
         />
       </BirthFormInputsStyled>
+      <button type="submit">SUBMIT</button>
     </BirthFormStyled>
   );
 };
