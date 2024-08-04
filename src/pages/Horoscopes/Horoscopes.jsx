@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { ContainerStyled } from "../../styled";
 import { HoroscopesContainerStyled } from "./styled";
 
+import { OrderPlacement } from "../../components/OrderPlacement";
+
 const Main = ({ nextStep }) => {
   return (
     <ContainerStyled>
@@ -120,7 +122,13 @@ export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
         </HoroscopesContainerStyled>
       );
     case 4:
-      return <Result prevStep={prevStep} nextStep={nextStep} />;
+      return (
+        <>
+          <OrderPlacement />
+          <button onClick={prevStep}>Prev</button>
+          <button onClick={nextStep}>Next</button>
+        </>
+      );
     case 5:
       return <Gratitude resetForm={resetForm} />;
     default:
