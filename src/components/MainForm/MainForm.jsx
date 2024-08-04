@@ -1,5 +1,6 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import PropTypes from "prop-types";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -10,7 +11,7 @@ import { mainFormSchema } from "../../schemes";
 import { HoroscopeComposition } from "../HoroscopeComposition";
 import { AddDiscount, BasicForm } from "../ui";
 
-export const MainForm = () => {
+export const MainForm = ({ nextStep }) => {
   const {
     register,
     handleSubmit,
@@ -31,8 +32,7 @@ export const MainForm = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
-
+    nextStep();
     localStorage.setItem("data", JSON.stringify(data));
   };
 
@@ -84,4 +84,8 @@ export const MainForm = () => {
       )}
     </MainFormStyled>
   );
+};
+
+MainForm.propTypes = {
+  nextStep: PropTypes.func.isRequired
 };
