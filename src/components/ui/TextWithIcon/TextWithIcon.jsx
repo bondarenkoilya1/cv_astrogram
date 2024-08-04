@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { OrderCardRecipientHeaderTextStyled, TextWithIconStyled } from "./styled.js";
+import { OrderCardRecipientHeaderTextStyled, TextWithIconStyled } from "./styled";
 
 export const TextWithIcon = ({ icon, children, fontWeight, ...attrs }) => {
   return (

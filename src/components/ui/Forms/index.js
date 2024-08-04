@@ -1,2 +1,1 @@
 export * from "./BasicForm";
-export * from "./BirthForm";

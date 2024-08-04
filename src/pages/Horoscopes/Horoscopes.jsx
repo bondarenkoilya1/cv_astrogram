@@ -4,7 +4,18 @@ import PropTypes from "prop-types";
 import { ContainerStyled } from "../../styled";
 import { HoroscopesContainerStyled } from "./styled";
 
-import { OrderPlacement } from "../../components";
+import woman from "../../assets/images/woman.png";
+import {
+  BirthForm,
+  GetAnswers,
+  Gratitude,
+  HoroscopeContent,
+  Image,
+  MainForm,
+  OrderPlacement,
+  Products
+} from "../../components";
+import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
 
 const Main = ({ nextStep }) => {
   return (
@@ -49,18 +60,6 @@ Main.propTypes = {
   nextStep: PropTypes.func.isRequired
 };
 
-import woman from "../../assets/images/woman.png";
-import {
-  BirthForm,
-  GetAnswers,
-  Gratitude,
-  HoroscopeContent,
-  Image,
-  MainForm,
-  Products
-} from "../../components";
-import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
-
 export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
   switch (stage) {
     case 1:
@@ -68,9 +67,7 @@ export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
     case 2:
       return (
         <HoroscopesContainerStyled>
-          <button onClick={prevStep}>Prev</button>
-          <button onClick={nextStep}>Next</button>
-          <BirthForm />
+          <BirthForm prevStep={prevStep} nextStep={nextStep} />
         </HoroscopesContainerStyled>
       );
     case 3:

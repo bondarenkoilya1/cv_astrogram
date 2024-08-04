@@ -8,3 +8,4 @@ export * from "./GetAnswers";
 export * from "./Products";
 export * from "./Gratitude";
 export * from "./OrderPlacement";
+export * from "./BirthForm";
