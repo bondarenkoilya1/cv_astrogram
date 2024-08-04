@@ -122,6 +122,10 @@ export const GlobalStyle = css`
 export const ContainerStyled = styled.div`
   max-width: 1520px;
   margin: 0 auto;
+
+  @media screen and (max-width: 1610px) {
+    max-width: 90%;
+  }
 `;
 
 export const VerticalLineStyled = styled.div`
