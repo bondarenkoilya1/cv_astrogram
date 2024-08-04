@@ -1,9 +1,14 @@
 import styled from "@emotion/styled";
 
+import discount from "../../../assets/images/add-discount/25-percents.png";
+
 export const AddDiscountStyled = styled.section`
   border-radius: 20px;
   padding: 40px 0 30px 40px;
-  background: linear-gradient(273.08deg, #350a6f 0.8%, #390a74 59.11%, #6521a8 97.19%);
+  background:
+    url(${discount}) right -180px top -125px / cover,
+    linear-gradient(273.08deg, #350a6f 0.8%, #390a74 59.11%, #6521a8 97.19%);
+  background-repeat: no-repeat;
 `;
 
 export const AddDiscountTitleStyled = styled.h3`
