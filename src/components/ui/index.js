@@ -15,3 +15,4 @@ export * from "./Link";
 export * from "./Offer";
 export * from "./Thanks";
 export * from "./ProgressBar";
+export * from "./OrderCard";
