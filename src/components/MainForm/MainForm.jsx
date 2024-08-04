@@ -27,7 +27,8 @@ export const MainForm = ({ nextStep }) => {
       productsAdditional: horoscopeCompositionAdditionalList.map((product) => ({
         ...product,
         isChecked: false
-      }))
+      })),
+      addDiscount: false
     }
   });
 

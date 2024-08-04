@@ -24,7 +24,14 @@ const renderPrice = (currentPrice, oldPrice) => {
   );
 };
 
-export const AddDiscount = ({ discount, currentPrice, oldPrice, control = {}, ...attrs }) => {
+export const AddDiscount = ({
+  discount,
+  currentPrice,
+  oldPrice,
+  control = {},
+  checked,
+  ...attrs
+}) => {
   return (
     <AddDiscountStyled {...attrs}>
       <AddDiscountTitleStyled>Получите весь набор со скидкой {discount}%</AddDiscountTitleStyled>
@@ -35,6 +42,7 @@ export const AddDiscount = ({ discount, currentPrice, oldPrice, control = {}, ..
         <Controller
           name="addDiscount"
           control={control}
+          defaultValue={checked}
           render={({ field: { onChange, value } }) => (
             <Checkbox isChecked={value} onChange={() => onChange(!value)} type="outline">
               {value ? "Добавлено" : "Добавить к заказу"}
@@ -53,5 +61,6 @@ AddDiscount.propTypes = {
   discount: PropTypes.number.isRequired,
   currentPrice: PropTypes.number.isRequired,
   oldPrice: PropTypes.number.isRequired,
-  control: PropTypes.object
+  control: PropTypes.object,
+  checked: PropTypes.bool
 };
