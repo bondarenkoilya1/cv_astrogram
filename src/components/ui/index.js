@@ -16,3 +16,4 @@ export * from "./Offer";
 export * from "./Thanks";
 export * from "./ProgressBar";
 export * from "./OrderCard";
+export * from "./TextWithIcon";
