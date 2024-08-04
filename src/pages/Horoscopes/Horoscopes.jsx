@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { ContainerStyled } from "../../styled";
-import { HoroscopesContainerStyled } from "./styled";
+import { HoroscopesContainerStyled, MainImageStyled } from "./styled";
 
 import woman from "../../assets/images/woman.png";
 import {
@@ -14,7 +14,6 @@ import {
   GetAnswers,
   Gratitude,
   HoroscopeContent,
-  Image,
   MainForm,
   OrderPlacement,
   Products
@@ -25,13 +24,7 @@ import { mainFormSchema } from "../../schemes/index.js";
 const Main = ({ nextStep }) => {
   return (
     <ContainerStyled>
-      <Image
-        src={woman}
-        alt="Woman with a heart"
-        width="100%"
-        height="560px"
-        style={{ marginBottom: "60px" }}
-      />
+      <MainImageStyled src={woman} alt="Woman with a heart" width="100%" height="auto" />
       <HoroscopesContainerStyled>
         <MainForm nextStep={nextStep} />
       </HoroscopesContainerStyled>
@@ -66,7 +59,6 @@ Main.propTypes = {
 
 export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
   const savedData = JSON.parse(localStorage.getItem("data"));
-  console.log(savedData);
 
   const { control } = useForm({
     resolver: zodResolver(mainFormSchema),
