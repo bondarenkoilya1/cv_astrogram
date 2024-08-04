@@ -11,7 +11,7 @@ export const OrderButtonGroup = ({ prevStep, nextStep, nextStepText = "Дале�
       <OrderButton onClick={prevStep} category="prev">
         Назад
       </OrderButton>
-      <OrderButton onClick={nextStep} category="next">
+      <OrderButton onClick={nextStep} category="next" type="submit">
         {nextStepText}
       </OrderButton>
     </OrderButtonGroupStyled>
