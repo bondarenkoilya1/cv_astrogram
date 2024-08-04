@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import { Checkbox, TextWithIcon } from "../ui";
 
-export const OrderPlacementStyled = styled.section`
+export const OrderPlacementStyled = styled.form`
   max-width: 750px;
   margin: 80px auto 0 auto;
 `;
@@ -56,4 +56,42 @@ export const OrderCardInformationCheckboxStyled = styled(Checkbox)`
   &:last-child {
     margin-bottom: 0;
   }
+`;
+
+export const OrderPlacementSeparator = styled.div`
+  width: 100%;
+  border: 1px solid #312d48;
+  margin: 40px 0;
+`;
+
+export const OrderPlacementContainerStyled = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const OrderPlacementResultTitleStyled = styled.h4`
+  font-family: "Foglihten", serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  text-transform: uppercase;
+`;
+
+export const OrderPlacementResultContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const OrderPlacementPriceStyled = styled.p`
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 52px;
+`;
+
+export const OrderPlacementPriceDescriptionStyled = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #b2add8;
 `;

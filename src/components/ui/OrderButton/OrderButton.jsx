@@ -5,7 +5,7 @@ import { OrderButtonContainerStyled, OrderButtonStyled } from "./styled";
 
 import { ReactComponent as ArrowIcon } from "../../../assets/images/arrow-filled.svg";
 
-export const OrderButton = ({ children, category, onClick, ...attrs }) => {
+export const OrderButton = ({ children, category, onClick, type, ...attrs }) => {
   if (category === "prev") {
     return (
       <OrderButtonContainerStyled onClick={onClick}>
@@ -18,7 +18,7 @@ export const OrderButton = ({ children, category, onClick, ...attrs }) => {
   }
 
   return (
-    <OrderButtonStyled category={category} onClick={onClick} {...attrs}>
+    <OrderButtonStyled category={category} onClick={onClick} type={type} {...attrs}>
       {children}
     </OrderButtonStyled>
   );
@@ -27,5 +27,6 @@ export const OrderButton = ({ children, category, onClick, ...attrs }) => {
 OrderButton.propTypes = {
   children: PropTypes.node.isRequired,
   category: PropTypes.oneOf(["prev", "next"]).isRequired,
+  type: PropTypes.oneOf(["submit", "button"]),
   onClick: PropTypes.func
 };

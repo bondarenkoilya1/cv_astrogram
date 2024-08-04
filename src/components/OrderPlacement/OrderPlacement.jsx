@@ -1,5 +1,8 @@
 import React from "react";
+import { Controller, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   OrderCardInformationCheckboxStyled,
@@ -8,6 +11,12 @@ import {
   OrderCardRecipientHeaderStyled,
   OrderCardRecipientHeaderTitleStyled,
   OrderCardRecipientListStyled,
+  OrderPlacementContainerStyled,
+  OrderPlacementPriceDescriptionStyled,
+  OrderPlacementPriceStyled,
+  OrderPlacementResultContainerStyled,
+  OrderPlacementResultTitleStyled,
+  OrderPlacementSeparator,
   OrderPlacementStyled,
   OrderPlacementTitleStyled,
   TextWithIconStyled
@@ -17,7 +26,8 @@ import { ReactComponent as CalendarIcon } from "../../assets/images/calendar.svg
 import { ReactComponent as ClockIcon } from "../../assets/images/clock.svg";
 import { ReactComponent as MapIcon } from "../../assets/images/map.svg";
 import { ReactComponent as UserIcon } from "../../assets/images/user.svg";
-import { paymentMethodRadioGroup } from "../../data/index.js";
+import { paymentMethodRadioGroup } from "../../data";
+import { paymentMethodSchema } from "../../schemes/index.js";
 import { Button, OrderButtonGroup, OrderCard, RadioGroup, TextWithIcon } from "../ui";
 
 const OrderCardRecipientHeader = ({ userName, userSex }) => {
@@ -46,6 +56,13 @@ const recipientArray = [
 ];
 
 export const OrderPlacement = ({ prevStep, nextStep }) => {
+  const { control, handleSubmit } = useForm({ resolver: zodResolver(paymentMethodSchema) });
+
+  const onSubmit = (data) => {
+    console.log(data);
+    nextStep();
+  };
+
   const userData = JSON.parse(localStorage.getItem("data"));
 
   const userName = userData.name;
@@ -69,7 +86,7 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
   );
 
   return (
-    <OrderPlacementStyled>
+    <OrderPlacementStyled onSubmit={handleSubmit((data) => console.log(data))}>
       <OrderPlacementTitleStyled>Оформление гороскопа</OrderPlacementTitleStyled>
       <OrderCard
         title="Получатель"
@@ -109,14 +126,34 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
           </OrderCardInformationListStyled>
         </OrderCardRecipientContainerStyled>
       </OrderCard>
-      <RadioGroup
-        title="Способ оплаты"
-        isTitleUppercase={true}
-        onChange={null}
-        array={paymentMethodRadioGroup}
-        selectedValue=""
+      <Controller
+        name="paymentMethod"
+        control={control}
+        render={({ field: { onChange, value = "" } }) => (
+          <RadioGroup
+            array={paymentMethodRadioGroup}
+            selectedValue={value}
+            onChange={onChange}
+            title="Способ оплаты"
+            isTitleUppercase={true}
+          />
+        )}
       />
-      <OrderButtonGroup prevStep={prevStep} nextStep={nextStep} nextStepText="Перейти к оплате" />
+      <OrderPlacementSeparator />
+      <OrderPlacementContainerStyled>
+        <OrderPlacementResultTitleStyled>Итог</OrderPlacementResultTitleStyled>
+        <OrderPlacementResultContainerStyled>
+          <OrderPlacementPriceStyled>1 050 руб.</OrderPlacementPriceStyled>
+          <OrderPlacementPriceDescriptionStyled>
+            Сумма к оплате
+          </OrderPlacementPriceDescriptionStyled>
+        </OrderPlacementResultContainerStyled>
+      </OrderPlacementContainerStyled>
+      <OrderButtonGroup
+        prevStep={prevStep}
+        nextStep={handleSubmit(onSubmit)}
+        nextStepText="Перейти к оплате"
+      />
     </OrderPlacementStyled>
   );
 };

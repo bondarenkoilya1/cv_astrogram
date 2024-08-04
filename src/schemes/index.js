@@ -21,3 +21,7 @@ export const mainFormSchema = z.object({
     ),
   productsAdditional: z.array(productSchema).optional()
 });
+
+export const paymentMethodSchema = z.object({
+  paymentMethod: z.string().min(1)
+});
