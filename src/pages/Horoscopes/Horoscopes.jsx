@@ -20,7 +20,6 @@ import { blogPostsList, horoscopeContentList, otherProductsList, productsList } 
 const Main = ({ nextStep }) => {
   return (
     <ContainerStyled>
-      <button onClick={nextStep}>Next step</button>
       <Image
         src={woman}
         alt="Woman with a heart"
@@ -29,7 +28,7 @@ const Main = ({ nextStep }) => {
         style={{ marginBottom: "60px" }}
       />
       <HoroscopesContainerStyled>
-        <MainForm />
+        <MainForm nextStep={nextStep} />
       </HoroscopesContainerStyled>
       <HoroscopeContent array={horoscopeContentList} style={{ marginTop: "120px" }} />
       <GetAnswers style={{ marginTop: "120px" }} />
