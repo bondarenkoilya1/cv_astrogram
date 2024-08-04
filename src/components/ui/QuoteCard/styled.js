@@ -15,6 +15,21 @@ export const QuoteCardStyled = styled.li`
     url(${quoteReversed}) bottom 10% right 7%,
     linear-gradient(180deg, #3a2643 0%, #231e48 100%);
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 570px) {
+    padding: 80px 50px;
+    background:
+      url(${quote}) top 5% left 7% / 45px,
+      url(${star}) top 5% right 7% / 45px,
+      url(${rhombus}) bottom 5% left 7% / 45px,
+      url(${quoteReversed}) bottom 5% right 7% / 45px,
+      linear-gradient(180deg, #3a2643 0%, #231e48 100%);
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 80px 30px;
+  }
 `;
 
 export const QuoteCardTitleStyled = styled.h4`
@@ -23,6 +38,15 @@ export const QuoteCardTitleStyled = styled.h4`
   font-weight: 700;
   line-height: 34px;
   max-width: 622px;
+
+  @media screen and (max-width: 570px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 18px;
+  }
 `;
 
 export const QuoteCardDescriptionListStyled = styled.ul`
@@ -39,5 +63,13 @@ export const QuoteCardDescriptionStyled = styled.li`
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 570px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 14px;
   }
 `;

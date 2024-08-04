@@ -20,6 +20,14 @@ export const PersonCardStyled = styled.li`
     `
       background-image: url(${backgroundImages[props.backgroundName]});
     `};
+
+  @media screen and (max-width: 500px) {
+    padding-bottom: 40px;
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 65px 20px 20px 20px;
+  }
 `;
 
 export const PersonCardTitleStyled = styled.h4`
@@ -27,6 +35,16 @@ export const PersonCardTitleStyled = styled.h4`
   font-size: 32px;
   font-weight: 700;
   line-height: 44px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 18px;
+    line-height: 20px;
+  }
 `;
 
 export const PersonCardDescriptionStyled = styled.p`

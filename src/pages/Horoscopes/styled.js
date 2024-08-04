@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { Image } from "../../components";
+import { GetAnswers, Image } from "../../components";
 
 export const HoroscopesContainerStyled = styled.div`
   max-width: 750px;
@@ -17,4 +17,8 @@ export const MainImageStyled = styled(Image)`
   @media screen and (max-width: 600px) {
     margin-bottom: 20px;
   }
+`;
+
+export const MainGetAnswersStyled = styled(GetAnswers)`
+  margin-top: 120px;
 `;
