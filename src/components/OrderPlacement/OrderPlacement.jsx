@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 import {
@@ -17,7 +18,7 @@ import { ReactComponent as ClockIcon } from "../../assets/images/clock.svg";
 import { ReactComponent as MapIcon } from "../../assets/images/map.svg";
 import { ReactComponent as UserIcon } from "../../assets/images/user.svg";
 import { paymentMethodRadioGroup } from "../../data/index.js";
-import { Button, OrderCard, RadioGroup, TextWithIcon } from "../ui";
+import { Button, OrderButtonGroup, OrderCard, RadioGroup, TextWithIcon } from "../ui";
 
 const OrderCardRecipientHeader = ({ userName, userSex }) => {
   return (
@@ -44,7 +45,7 @@ const recipientArray = [
   { icon: <MapIcon />, text: "Россия, Свердловская область, Екатеринбург" }
 ];
 
-export const OrderPlacement = () => {
+export const OrderPlacement = ({ prevStep, nextStep }) => {
   const userData = JSON.parse(localStorage.getItem("data"));
 
   const userName = userData.name;
@@ -115,6 +116,8 @@ export const OrderPlacement = () => {
         array={paymentMethodRadioGroup}
         selectedValue=""
       />
+
+      <OrderButtonGroup prevStep={prevStep} nextStep={nextStep} nextStepText="Перейти к оплате" />
     </OrderPlacementStyled>
   );
 };
@@ -122,4 +125,9 @@ export const OrderPlacement = () => {
 OrderCardRecipientHeader.propTypes = {
   userName: PropTypes.string.isRequired,
   userSex: PropTypes.string.isRequired
+};
+
+OrderPlacement.propTypes = {
+  prevStep: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired
 };
