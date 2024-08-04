@@ -7,7 +7,7 @@ import {
   OfferTitleStyled
 } from "./styled";
 
-import { Image, Link } from "../index.js";
+import { Image, Link } from "../index";
 
 export const Offer = ({
   imageSrc,

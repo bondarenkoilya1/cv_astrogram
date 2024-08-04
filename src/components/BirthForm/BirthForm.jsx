@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import PropTypes from "prop-types";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -13,26 +14,46 @@ import {
   BirthFormTitleStyled
 } from "./styled";
 
-import calendar from "../../../../assets/images/calendar.svg";
-import clock from "../../../../assets/images/clock.svg";
-import { birthFormSchema } from "../../../../schemes";
-import { RadioButton } from "../../RadioButton";
-import { TextField } from "../../TextField";
+import calendar from "../../assets/images/calendar.svg";
+import clock from "../../assets/images/clock.svg";
+import { birthFormSchema } from "../../schemes";
+import { OrderButtonGroup, RadioButton, TextField } from "../ui";
 
-export const BirthForm = ({ ...attrs }) => {
-  const { register, handleSubmit, setValue } = useForm({
-    resolver: zodResolver(birthFormSchema)
+export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
+  const { register, handleSubmit, setValue, watch } = useForm({
+    resolver: zodResolver(birthFormSchema),
+    defaultValues: {
+      birthtime: "",
+      birthtimeRadio: false
+    }
   });
 
+  const birthtime = watch("birthtime");
+  const birthtimeRadio = watch("birthtimeRadio");
+
+  useEffect(() => {
+    if (birthtime) {
+      setValue("birthtimeRadio", false);
+    }
+  }, [birthtime, setValue]);
+
+  useEffect(() => {
+    if (birthtimeRadio) {
+      setValue("birthtime", "");
+    }
+  }, [birthtimeRadio, setValue]);
+
   const onSubmit = (data) => {
-    console.log(data);
+    localStorage.setItem("birthInformation", JSON.stringify(data));
+
+    nextStep();
   };
 
   const birthMask = [/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/];
   const timeMask = [/\d/, /\d/, ":", /\d/, /\d/];
 
   return (
-    <BirthFormStyled {...attrs} onSubmit={handleSubmit(onSubmit)}>
+    <BirthFormStyled {...attrs} onSubmit={handleSubmit((data) => console.log(data))}>
       <BirthFormTitleStyled>Информация о рождении</BirthFormTitleStyled>
       <BirthFormContainerStyled>
         <TextField
@@ -57,8 +78,14 @@ export const BirthForm = ({ ...attrs }) => {
             label="Время рождения"
             name="birthtime"
             style={{ width: "222px", marginRight: "10px" }}
+            {...register("birthtime")}
+            onChange={(e) => setValue("birthtime", e.target.value)}
           />
-          <RadioButton onChange={null} name="birthtime-radio" checked={null} value="birthtme-radio">
+          <RadioButton
+            onChange={() => setValue("birthtimeRadio", !birthtimeRadio)}
+            name="birthtime-radio"
+            checked={birthtimeRadio}
+            value="birthtme-radio">
             Я не знаю время
           </RadioButton>
         </BirthFormBirthtimeContainerStyled>
@@ -91,9 +118,12 @@ export const BirthForm = ({ ...attrs }) => {
           {...register("birthCoordinates")}
         />
       </BirthFormInputsStyled>
-      <button type="submit">SUBMIT</button>
+      <OrderButtonGroup prevStep={prevStep} nextStep={handleSubmit(onSubmit)} />
     </BirthFormStyled>
   );
 };
 
-BirthForm.propTypes = {};
+BirthForm.propTypes = {
+  prevStep: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired
+};

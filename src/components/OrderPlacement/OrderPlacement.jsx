@@ -27,7 +27,8 @@ import { ReactComponent as ClockIcon } from "../../assets/images/clock.svg";
 import { ReactComponent as MapIcon } from "../../assets/images/map.svg";
 import { ReactComponent as UserIcon } from "../../assets/images/user.svg";
 import { paymentMethodRadioGroup } from "../../data";
-import { paymentMethodSchema } from "../../schemes/index.js";
+import { paymentMethodSchema } from "../../schemes";
+import { formatDate } from "../../utils";
 import { Button, OrderButtonGroup, OrderCard, RadioGroup, TextWithIcon } from "../ui";
 
 const OrderCardRecipientHeader = ({ userName, userSex }) => {
@@ -49,24 +50,30 @@ const OrderCardInformationHeader = () => {
   );
 };
 
-const recipientArray = [
-  { icon: <CalendarIcon />, text: "15 октября 1997" },
-  { icon: <ClockIcon />, text: "Время не известно" },
-  { icon: <MapIcon />, text: "Россия, Свердловская область, Екатеринбург" }
-];
-
 export const OrderPlacement = ({ prevStep, nextStep }) => {
   const { control, handleSubmit } = useForm({ resolver: zodResolver(paymentMethodSchema) });
 
   const onSubmit = (data) => {
-    console.log(data);
     nextStep();
+    return data;
   };
 
   const userData = JSON.parse(localStorage.getItem("data"));
+  const userBirthInformation = JSON.parse(localStorage.getItem("birthInformation"));
 
   const userName = userData.name;
   const userSex = userData.sex;
+  const userBirthday = formatDate(userBirthInformation.birthday);
+  const userBirthtime = userBirthInformation.birthtime || "Время не известно";
+  const userBirthAddress = userBirthInformation.birthAddress;
+  // unused
+  // const userBirthCoordinates = userBirthInformation.birthCoordinates;
+
+  const recipientArray = [
+    { icon: <CalendarIcon />, text: userBirthday },
+    { icon: <ClockIcon />, text: userBirthtime },
+    { icon: <MapIcon />, text: userBirthAddress }
+  ];
 
   const productsMain = userData.productsMain;
   const productsAdditional = userData.productsAdditional;
