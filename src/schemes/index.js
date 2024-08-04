@@ -27,7 +27,10 @@ export const paymentMethodSchema = z.object({
 });
 
 // birth form
+const datePattern = /^\d{2}\.\d{2}\.\d{4}$/;
+
 export const birthFormSchema = z.object({
+  birthday: z.string().regex(datePattern),
   birthAddress: z.string().min(1),
   birthCoordinates: z.string().optional()
 });

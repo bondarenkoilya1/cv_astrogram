@@ -20,7 +20,7 @@ import { RadioButton } from "../../RadioButton";
 import { TextField } from "../../TextField";
 
 export const BirthForm = ({ ...attrs }) => {
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, setValue } = useForm({
     resolver: zodResolver(birthFormSchema)
   });
 
@@ -44,6 +44,8 @@ export const BirthForm = ({ ...attrs }) => {
           label="Дата рождения"
           name="birthday"
           style={{ width: "300px" }}
+          {...register("birthday")}
+          onChange={(e) => setValue("birthday", e.target.value)}
         />
         <BirthFormBirthtimeContainerStyled>
           <TextField
