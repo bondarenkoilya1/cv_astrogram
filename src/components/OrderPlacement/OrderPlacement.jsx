@@ -116,7 +116,6 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
         array={paymentMethodRadioGroup}
         selectedValue=""
       />
-
       <OrderButtonGroup prevStep={prevStep} nextStep={nextStep} nextStepText="Перейти к оплате" />
     </OrderPlacementStyled>
   );
