@@ -75,7 +75,7 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
           <BasicFormPriceStyled>1 050 руб.</BasicFormPriceStyled>
           <BasicFormPriceSubtitleStyled>Сумма заказа</BasicFormPriceSubtitleStyled>
         </BasicFormPriceInformationStyled>
-        <Button type="submit" disabled={isSubmitting}>
+        <Button type="submit" disabled={isSubmitting} appearance="filled">
           Перейти к оформлению
         </Button>
       </BasicFormFooterStyled>

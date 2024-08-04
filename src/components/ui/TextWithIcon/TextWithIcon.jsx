@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 
 import { OrderCardRecipientHeaderTextStyled, TextWithIconStyled } from "./styled.js";
 
-export const TextWithIcon = ({ icon, children, fontWeight }) => {
+export const TextWithIcon = ({ icon, children, fontWeight, ...attrs }) => {
   return (
-    <TextWithIconStyled>
+    <TextWithIconStyled {...attrs}>
       {icon}
       <OrderCardRecipientHeaderTextStyled fontWeight={fontWeight}>
         {children}
