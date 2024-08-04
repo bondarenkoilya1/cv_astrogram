@@ -45,48 +45,7 @@ const Main = ({ nextStep }) => {
   );
 };
 
-const Result = ({ prevStep, nextStep }) => {
-  const someData = JSON.parse(localStorage.getItem("data"));
-  console.log(someData.productsMain[0].title);
-
-  const productsMain = someData.productsMain;
-  const productsAdditional = someData.productsAdditional;
-
-  const productsMainTitles = productsMain.filter(({ title, isChecked }) => {
-    return { title, isChecked };
-  });
-  const productsAdditionalTitles = productsAdditional.map(({ title, isChecked }) => {
-    return { title, isChecked };
-  });
-
-  const productsAllTitle = productsMainTitles.concat(productsAdditionalTitles);
-  console.log(productsAllTitle);
-
-  const productsAllChecked = productsAllTitle
-    .filter(({ isChecked }) => isChecked)
-    .map(({ title }) => title);
-
-  const productsAllUnchecked = productsAllTitle
-    .filter(({ isChecked }) => !isChecked)
-    .map(({ title }) => title);
-
-  console.log(productsAllChecked, productsAllUnchecked);
-
-  return (
-    <HoroscopesContainerStyled>
-      <p>4</p>
-      <button onClick={prevStep}>Prev</button>
-      <button onClick={nextStep}>Next</button>
-    </HoroscopesContainerStyled>
-  );
-};
-
 Main.propTypes = {
-  nextStep: PropTypes.func.isRequired
-};
-
-Result.propTypes = {
-  prevStep: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired
 };
 

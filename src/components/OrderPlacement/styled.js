@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { TextWithIcon } from "../ui";
+import { Checkbox, TextWithIcon } from "../ui";
 
 export const OrderPlacementStyled = styled.div`
   max-width: 750px;
@@ -43,3 +43,17 @@ export const OrderCardRecipientContainerStyled = styled.div`
 `;
 
 export const OrderCardRecipientListStyled = styled.ul``;
+
+export const OrderCardInformationListStyled = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const OrderCardInformationCheckboxStyled = styled(Checkbox)`
+  margin-bottom: 10px;
+  cursor: default;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
