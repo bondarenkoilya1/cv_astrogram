@@ -83,6 +83,7 @@ export const OrderPlacement = () => {
               <OrderCardInformationCheckboxStyled
                 type="squared"
                 isChecked={true}
+                textColor="white"
                 key={crypto.randomUUID()}>
                 {text}
               </OrderCardInformationCheckboxStyled>
@@ -91,6 +92,7 @@ export const OrderPlacement = () => {
               <OrderCardInformationCheckboxStyled
                 type="squared"
                 isChecked={false}
+                disabled={true}
                 key={crypto.randomUUID()}>
                 {text}
               </OrderCardInformationCheckboxStyled>

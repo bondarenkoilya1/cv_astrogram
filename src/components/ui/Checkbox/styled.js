@@ -26,7 +26,7 @@ export const LabelStyled = styled.label`
   &[type="squared"] {
     align-items: flex-end;
     font-weight: 400;
-    color: #b2add8;
+    color: ${(props) => (props.textColor === "white" ? "#fff" : "#b2add8")};
   }
 
   &[type="squared"] > span {
@@ -44,6 +44,14 @@ export const LabelStyled = styled.label`
   &[type="outline"]:hover {
     background: linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
     border-color: transparent;
+  }
+
+  &[disabled] {
+    color: #63616f;
+
+    & > span {
+      border-color: #747474;
+    }
   }
 `;
 
