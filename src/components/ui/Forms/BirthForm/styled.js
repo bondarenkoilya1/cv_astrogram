@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const BirthFormStyled = styled.div``;
+export const BirthFormStyled = styled.form``;
 
 export const BirthFormTitleStyled = styled.h2`
   font-family: "Foglihten", serif;

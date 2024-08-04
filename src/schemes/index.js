@@ -25,3 +25,9 @@ export const mainFormSchema = z.object({
 export const paymentMethodSchema = z.object({
   paymentMethod: z.string().min(1)
 });
+
+// birth form
+export const birthFormSchema = z.object({
+  birthAddress: z.string().min(1),
+  birthCoordinates: z.string().optional()
+});
