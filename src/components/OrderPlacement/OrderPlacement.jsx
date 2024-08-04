@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import {
   OrderCardInformationCheckboxStyled,
   OrderCardInformationListStyled,
@@ -14,14 +16,15 @@ import { ReactComponent as CalendarIcon } from "../../assets/images/calendar.svg
 import { ReactComponent as ClockIcon } from "../../assets/images/clock.svg";
 import { ReactComponent as MapIcon } from "../../assets/images/map.svg";
 import { ReactComponent as UserIcon } from "../../assets/images/user.svg";
-import { Button, OrderCard, TextWithIcon } from "../ui";
+import { paymentMethodRadioGroup } from "../../data/index.js";
+import { Button, OrderCard, RadioGroup, TextWithIcon } from "../ui";
 
-const OrderCardRecipientHeader = () => {
+const OrderCardRecipientHeader = ({ userName, userSex }) => {
   return (
     <OrderCardRecipientHeaderStyled>
-      <OrderCardRecipientHeaderTitleStyled>Екатерина</OrderCardRecipientHeaderTitleStyled>
+      <OrderCardRecipientHeaderTitleStyled>{userName}</OrderCardRecipientHeaderTitleStyled>
       <TextWithIcon icon={<UserIcon />} fontWeight={700}>
-        Жен.
+        {userSex}
       </TextWithIcon>
     </OrderCardRecipientHeaderStyled>
   );
@@ -44,6 +47,9 @@ const recipientArray = [
 export const OrderPlacement = () => {
   const userData = JSON.parse(localStorage.getItem("data"));
 
+  const userName = userData.name;
+  const userSex = userData.sex;
+
   const productsMain = userData.productsMain;
   const productsAdditional = userData.productsAdditional;
   const allProducts = [...productsMain, ...productsAdditional];
@@ -64,7 +70,9 @@ export const OrderPlacement = () => {
   return (
     <OrderPlacementStyled>
       <OrderPlacementTitleStyled>Оформление гороскопа</OrderPlacementTitleStyled>
-      <OrderCard title="Получатель" headerContent={<OrderCardRecipientHeader />}>
+      <OrderCard
+        title="Получатель"
+        headerContent={<OrderCardRecipientHeader userName={userName} userSex={userSex} />}>
         <OrderCardRecipientContainerStyled>
           <OrderCardRecipientListStyled>
             {recipientArray.map(({ icon, text }) => (
@@ -100,6 +108,18 @@ export const OrderPlacement = () => {
           </OrderCardInformationListStyled>
         </OrderCardRecipientContainerStyled>
       </OrderCard>
+      <RadioGroup
+        title="Способ оплаты"
+        isTitleUppercase={true}
+        onChange={null}
+        array={paymentMethodRadioGroup}
+        selectedValue=""
+      />
     </OrderPlacementStyled>
   );
+};
+
+OrderCardRecipientHeader.propTypes = {
+  userName: PropTypes.string.isRequired,
+  userSex: PropTypes.string.isRequired
 };
