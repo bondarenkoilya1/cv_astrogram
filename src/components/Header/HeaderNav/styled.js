@@ -24,7 +24,7 @@ export const NavLinkStyled = styled(NavLink)`
   color: #fff;
   border-radius: 100px;
   border: 1px double transparent;
-  background-image: linear-gradient(#111018, #111018), linear-gradient(grey, grey);
+  background-image: linear-gradient(#111018, #111018), linear-gradient(#464168, #464168);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   font-size: 16px;
