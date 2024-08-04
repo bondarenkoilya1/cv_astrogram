@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import { Checkbox, TextWithIcon } from "../ui";
 
-export const OrderPlacementStyled = styled.div`
+export const OrderPlacementStyled = styled.section`
   max-width: 750px;
   margin: 80px auto 0 auto;
 `;

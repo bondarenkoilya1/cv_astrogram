@@ -4,10 +4,18 @@ import { RadioGroupListStyled, RadioGroupStyled, RadioGroupTitleStyled } from ".
 
 import { RadioButton } from "../RadioButton";
 
-export const RadioGroup = ({ array, selectedValue, onChange, title = "" }) => {
+export const RadioGroup = ({
+  array,
+  selectedValue,
+  onChange,
+  title = "",
+  isTitleUppercase = false
+}) => {
   return (
     <RadioGroupStyled>
-      {title && <RadioGroupTitleStyled>{title}</RadioGroupTitleStyled>}
+      {title && (
+        <RadioGroupTitleStyled isTitleUppercase={isTitleUppercase}>{title}</RadioGroupTitleStyled>
+      )}
       <RadioGroupListStyled>
         {array &&
           array.map(({ name, text, value }) => (
@@ -36,5 +44,6 @@ RadioGroup.propTypes = {
   ).isRequired,
   selectedValue: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
+  isTitleUppercase: PropTypes.bool
 };
