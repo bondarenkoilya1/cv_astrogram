@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import {
   ThanksDescriptionStyled,
   ThanksLinkStyled,
@@ -6,7 +8,7 @@ import {
   ThanksTitleStyled
 } from "./styled";
 
-export const Thanks = () => {
+export const Thanks = ({ resetForm }) => {
   return (
     <ThanksStyled>
       <ThanksTitleStyled>Благодарим за заказ!</ThanksTitleStyled>
@@ -15,7 +17,13 @@ export const Thanks = () => {
         на почту, когда он будет готов!
       </ThanksDescriptionStyled>
       <ThanksTimerStyled>Гороскоп будет готов через 09:52</ThanksTimerStyled>
-      <ThanksLinkStyled smallpadding="true">Перейти в личный кабинет</ThanksLinkStyled>
+      <ThanksLinkStyled smallpadding="true" onClick={resetForm}>
+        Перейти в личный кабинет
+      </ThanksLinkStyled>
     </ThanksStyled>
   );
+};
+
+Thanks.propTypes = {
+  resetForm: PropTypes.func.isRequired
 };

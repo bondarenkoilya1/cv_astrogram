@@ -43,7 +43,48 @@ const Main = ({ nextStep }) => {
   );
 };
 
+const Result = ({ prevStep, nextStep }) => {
+  const someData = JSON.parse(localStorage.getItem("data"));
+  console.log(someData.productsMain[0].title);
+
+  const productsMain = someData.productsMain;
+  const productsAdditional = someData.productsAdditional;
+
+  const productsMainTitles = productsMain.filter(({ title, isChecked }) => {
+    return { title, isChecked };
+  });
+  const productsAdditionalTitles = productsAdditional.map(({ title, isChecked }) => {
+    return { title, isChecked };
+  });
+
+  const productsAllTitle = productsMainTitles.concat(productsAdditionalTitles);
+  console.log(productsAllTitle);
+
+  const productsAllChecked = productsAllTitle
+    .filter(({ isChecked }) => isChecked)
+    .map(({ title }) => title);
+
+  const productsAllUnchecked = productsAllTitle
+    .filter(({ isChecked }) => !isChecked)
+    .map(({ title }) => title);
+
+  console.log(productsAllChecked, productsAllUnchecked);
+
+  return (
+    <HoroscopesContainerStyled>
+      <p>4</p>
+      <button onClick={prevStep}>Prev</button>
+      <button onClick={nextStep}>Next</button>
+    </HoroscopesContainerStyled>
+  );
+};
+
 Main.propTypes = {
+  nextStep: PropTypes.func.isRequired
+};
+
+Result.propTypes = {
+  prevStep: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired
 };
 
@@ -51,6 +92,7 @@ import woman from "../../assets/images/woman.png";
 import {
   BirthForm,
   GetAnswers,
+  Gratitude,
   HoroscopeContent,
   Image,
   MainForm,
@@ -58,38 +100,29 @@ import {
 } from "../../components";
 import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
 
-export const Horoscopes = ({ stage, nextStep, prevStep }) => {
+export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
   switch (stage) {
     case 1:
       return <Main nextStep={nextStep} />;
     case 2:
       return (
-        <div style={{ maxWidth: "750px", margin: "0 auto" }}>
+        <HoroscopesContainerStyled>
           <BirthForm />
           <button onClick={prevStep}>Prev</button>
           <button onClick={nextStep}>Next</button>
-        </div>
+        </HoroscopesContainerStyled>
       );
     case 3:
       return (
-        <div>
+        <HoroscopesContainerStyled>
           3<button onClick={prevStep}>Prev</button>
           <button onClick={nextStep}>Next</button>
-        </div>
+        </HoroscopesContainerStyled>
       );
     case 4:
-      return (
-        <div>
-          4<button onClick={prevStep}>Prev</button>
-          <button onClick={nextStep}>Next</button>
-        </div>
-      );
+      return <Result prevStep={prevStep} nextStep={nextStep} />;
     case 5:
-      return (
-        <div>
-          5<button onClick={prevStep}>Prev</button>
-        </div>
-      );
+      return <Gratitude resetForm={resetForm} />;
     default:
       return null;
   }
@@ -98,5 +131,6 @@ export const Horoscopes = ({ stage, nextStep, prevStep }) => {
 Horoscopes.propTypes = {
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,
-  stage: PropTypes.number.isRequired
+  stage: PropTypes.number.isRequired,
+  resetForm: PropTypes.func.isRequired
 };

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import {
   HeaderNavListItemStyled,
@@ -10,12 +11,15 @@ import {
 import { ReactComponent as Logo } from "../../../assets/images/logo.svg";
 import { headerNavPages } from "../../../data";
 
-const renderNavList = (array) => {
+const renderNavList = (array, onClick) => {
   return (
     <HeaderNavListStyled>
       {array.map(({ url, name }) => (
         <HeaderNavListItemStyled key={crypto.randomUUID()}>
-          <NavLinkStyled to={url} className={({ isActive }) => (isActive ? "active" : undefined)}>
+          <NavLinkStyled
+            to={url}
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+            onClick={onClick}>
             {name}
           </NavLinkStyled>
         </HeaderNavListItemStyled>
@@ -24,13 +28,17 @@ const renderNavList = (array) => {
   );
 };
 
-export const HeaderNav = () => {
+export const HeaderNav = ({ resetForm }) => {
   return (
     <HeaderNavStyled>
-      <Link to="/">
+      <Link to="/" onClick={resetForm}>
         <Logo />
       </Link>
-      {renderNavList(headerNavPages)}
+      {renderNavList(headerNavPages, resetForm)}
     </HeaderNavStyled>
   );
+};
+
+HeaderNav.propTypes = {
+  resetForm: PropTypes.func.isRequired
 };
