@@ -13,7 +13,7 @@ import {
   BasicFormTitleStyled
 } from "./styled";
 
-import { mainFormRadioGroup } from "../../../../data";
+import { sexRadioGroup } from "../../../../data";
 import { Button } from "../../Button";
 import { Checkbox } from "../../Checkbox";
 import { RadioGroup } from "../../RadioGroup";
@@ -37,7 +37,7 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
           control={control}
           render={({ field: { onChange, value = "" } }) => (
             <RadioGroup
-              array={mainFormRadioGroup}
+              array={sexRadioGroup}
               selectedValue={value}
               onChange={onChange}
               title="Ваш пол"
