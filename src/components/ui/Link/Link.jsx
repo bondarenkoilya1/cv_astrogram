@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 
 import { LinkStyled } from "./styled";
 
-export const Link = ({ children, to, ...attrs }) => {
+export const Link = ({ children, to, onClick, ...attrs }) => {
   return (
-    <LinkStyled to={to ? to : "/"} {...attrs}>
+    <LinkStyled to={to ? to : "/"} onClick={onClick} {...attrs}>
       {children}
     </LinkStyled>
   );
@@ -12,5 +12,6 @@ export const Link = ({ children, to, ...attrs }) => {
 
 Link.propTypes = {
   to: PropTypes.string,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func
 };

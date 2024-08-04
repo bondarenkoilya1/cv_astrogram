@@ -32,6 +32,8 @@ export const MainForm = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
+
+    localStorage.setItem("data", JSON.stringify(data));
   };
 
   return (

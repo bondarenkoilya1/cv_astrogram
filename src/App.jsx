@@ -36,9 +36,9 @@ export const App = () => {
   return (
     <Router>
       <Global styles={GlobalStyle} />
-      <Header resetForm={resetForm} />
+      <Header stage={stage} resetForm={resetForm} />
       <main>
-        <Layout stage={stage} nextStep={nextStep} prevStep={prevStep} />
+        <Layout stage={stage} nextStep={nextStep} prevStep={prevStep} resetForm={resetForm} />
       </main>
       <Footer stage={stage} />
     </Router>

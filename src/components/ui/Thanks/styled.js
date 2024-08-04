@@ -11,7 +11,7 @@ export const ThanksStyled = styled.section`
   background-size:
     80% 80%,
     100vw 100vh;
-  background-position: center calc(100% + 50px);
+  background-position: center bottom;
   padding-top: 80px;
 `;
 
