@@ -6,11 +6,12 @@ import {
   GetAnswersInformationStyled,
   GetAnswersListStyled,
   GetAnswersStyled,
-  GetAnswersTitleStyled
+  GetAnswersTitleStyled,
+  PersonCardStyled,
+  QuoteCardStyled
 } from "./styled";
 
 import { quoteCardAstrology } from "../../data";
-import { PersonCard, QuoteCard } from "../ui";
 
 export const GetAnswers = ({ ...attrs }) => {
   return (
@@ -25,16 +26,14 @@ export const GetAnswers = ({ ...attrs }) => {
         </GetAnswersTitleStyled>
       </GetAnswersInformationStyled>
       <GetAnswersListStyled>
-        <PersonCard
+        <PersonCardStyled
           title="Василиса Иванова"
           description="Профессиональный астролог"
           backgroundName="vasilisaIvanova"
-          style={{ width: "50%" }}
         />
-        <QuoteCard
+        <QuoteCardStyled
           title="Астрология поможет раскрыть тайны личной жизни, проливая свет на ваш путь к любви."
           description={quoteCardAstrology}
-          style={{ width: "50%" }}
         />
       </GetAnswersListStyled>
     </GetAnswersStyled>

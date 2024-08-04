@@ -28,6 +28,24 @@ export const ContentCardStyled = styled.li`
   &:not(:nth-last-of-type(-n+2)) {
     margin-bottom: 20px;
   }
+
+  @media screen and (max-width: 1006px) {
+    background-size: cover;
+    padding-top: 200px;
+  }
+
+  @media screen and (max-width: 890px) {
+    width: 100%;
+    padding-top: 276px;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 `;
 
 export const ContentCardTitleStyled = styled.h3`
@@ -38,6 +56,14 @@ export const ContentCardTitleStyled = styled.h3`
   text-align: center;
   margin: 0 auto;
   text-transform: uppercase;
+
+  @media screen and (max-width: 1006px) {
+    font-size: 26px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 26px;
+  }
 `;
 
 export const ContentCardDescriptionStyled = styled.p`
@@ -45,4 +71,8 @@ export const ContentCardDescriptionStyled = styled.p`
   margin: 15px auto 0;
   font-size: 16px;
   line-height: 22px;
+
+  @media screen and (max-width: 1006px) {
+    font-size: 14px;
+  }
 `;
