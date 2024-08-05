@@ -9,7 +9,7 @@ export const Header = ({ stage, resetForm }) => {
   return (
     <HeaderStyled style={stage === 5 ? { background: "#020107" } : null}>
       <ContainerStyled>
-        <HeaderNav resetForm={resetForm} />
+        <HeaderNav resetForm={resetForm} stage={stage} />
       </ContainerStyled>
     </HeaderStyled>
   );
