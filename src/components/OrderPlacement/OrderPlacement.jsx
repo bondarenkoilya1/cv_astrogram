@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
+  OrderCardButtonStyled,
   OrderCardInformationCheckboxStyled,
   OrderCardInformationListStyled,
   OrderCardRecipientContainerStyled,
@@ -29,7 +30,7 @@ import { ReactComponent as UserIcon } from "../../assets/images/user.svg";
 import { paymentMethodRadioGroup } from "../../data";
 import { paymentMethodSchema } from "../../schemes";
 import { formatDate } from "../../utils";
-import { Button, OrderButtonGroup, OrderCard, RadioGroup, TextWithIcon } from "../ui";
+import { OrderButtonGroup, OrderCard, RadioGroup, TextWithIcon } from "../ui";
 
 const OrderCardRecipientHeader = ({ userName, userSex }) => {
   return (
@@ -101,7 +102,7 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
               </TextWithIconStyled>
             ))}
           </OrderCardRecipientListStyled>
-          <Button>Редактировать</Button>
+          <OrderCardButtonStyled>Редактировать</OrderCardButtonStyled>
         </OrderCardRecipientContainerStyled>
       </OrderCard>
       <OrderCard title="Заказ" headerContent={<OrderCardInformationHeader />}>
