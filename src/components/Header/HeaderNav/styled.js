@@ -5,15 +5,41 @@ import styled from "@emotion/styled";
 import arrowIcon from "../../../assets/images/header/arrow.svg";
 import userIcon from "../../../assets/images/header/user.svg";
 
-export const HeaderNavStyled = styled.nav`
+export const HeaderNavContainerStyled = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+`;
+
+export const HeaderNavStyled = styled.nav`
+  @media screen and (max-width: 1024px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 100px;
+    transition: all 1s ease-in-out;
+    transform: translateY(-100vh);
+    background-color: #111018;
+  }
+
+  &.responsive {
+    transform: none;
+  }
 `;
 
 export const HeaderNavListStyled = styled.ul`
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 export const HeaderNavListItemStyled = styled.li`
@@ -33,6 +59,7 @@ export const NavLinkStyled = styled(NavLink)`
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
+  display: inline-block;
 
   &:focus,
   &.active {
@@ -44,6 +71,10 @@ export const NavLinkStyled = styled(NavLink)`
   &:hover {
     background: linear-gradient(90deg, #5846fb 0%, #ce66ff 100%);
     border: 1px solid #5846fb;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 40px;
   }
 `;
 
@@ -66,6 +97,29 @@ export const HeaderNavLoginButtonStyled = styled(Link)`
 
   &:hover {
     background: linear-gradient(90deg, #5846fb, #ce66ff);
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    border: 1px solid #332550;
+    margin-right: 10px;
+
+    &::after {
+      background: url(${userIcon}) center no-repeat;
+      width: 12px;
+      height: 16px;
+      margin-left: 0;
+    }
+
+    & > span {
+      display: none;
+    }
   }
 `;
 
@@ -94,3 +148,47 @@ export const HeaderNavProfileButtonStyled = styled(Link)`
 `;
 
 export const HeaderNavButtonSpanStyled = styled.span``;
+
+export const HeaderNavOpenButton = styled.button`
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #332550;
+  outline: none;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(90deg, #5846fb, #ce66ff);
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+  }
+`;
+
+export const HeaderNavCloseButtonStyled = styled.button`
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  background: none;
+  outline: none;
+  border: none;
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+
+  @media screen and (max-width: 1024px) {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
+
+export const HeaderNavFunctionsContainerStyled = styled.div`
+  display: flex;
+  align-items: center;
+`;
