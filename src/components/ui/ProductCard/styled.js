@@ -29,7 +29,17 @@ export const ProductCardStyled = styled.li`
       `;
     }
     return "";
-  }}
+  }};
+
+  @media screen and (max-width: 580px) {
+    padding: 20px 15px;
+    margin-bottom: 10px;
+    width: 48.7%;
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 100%;
+  }
 `;
 
 export const ProductCardContentStyled = styled.div`
@@ -45,6 +55,11 @@ export const ProductCardSubtitleStyled = styled.h6`
   line-height: 19px;
   color: #7c6dff;
   font-weight: 400;
+
+  @media screen and (max-width: 580px) {
+    font-size: 14px;
+    line-height: 16px;
+  }
 `;
 
 export const ProductCardTitleStyled = styled.h5`
@@ -53,6 +68,15 @@ export const ProductCardTitleStyled = styled.h5`
   line-height: 24px;
   margin: 10px 0 50px 0;
   max-width: 280px;
+
+  @media screen and (max-width: 580px) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @media screen and (max-width: 350px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const ProductCardContainerStyled = styled.div`

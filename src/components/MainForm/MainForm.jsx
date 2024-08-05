@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { MainFormDescriptionStyled, MainFormStyled, MainFormTitleStyled } from "./styled";
+import {
+  MainFormDescriptionStyled,
+  MainFormHoroscopeCompositionStyled,
+  MainFormStyled,
+  MainFormTitleStyled
+} from "./styled";
 
 import { horoscopeCompositionAdditionalList, horoscopeCompositionMainList } from "../../data";
 import { mainFormSchema } from "../../schemes";
@@ -48,11 +53,7 @@ export const MainForm = ({ nextStep }) => {
         name="productsMain"
         control={control}
         render={({ field: { value } }) => (
-          <HoroscopeComposition
-            array={value}
-            title="Состав гороскопа"
-            style={{ marginTop: "60px" }}
-          />
+          <MainFormHoroscopeCompositionStyled array={value} title="Состав гороскопа" />
         )}
       />
       <Controller

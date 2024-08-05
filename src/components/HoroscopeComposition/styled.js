@@ -13,4 +13,8 @@ export const HoroscopeCompositionListStyled = styled.ul`
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 30px;
+
+  @media screen and (max-width: 580px) {
+    margin-top: 20px;
+  }
 `;
