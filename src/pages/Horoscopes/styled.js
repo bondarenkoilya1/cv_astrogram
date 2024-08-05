@@ -1,6 +1,8 @@
-import styled, { css } from "@emotion/styled";
+import { css } from "@emotion/react";
 
-import { GetAnswers, HoroscopeContent, Image } from "../../components";
+import styled from "@emotion/styled";
+
+import { AdditionalNavigation, GetAnswers, HoroscopeContent, Image } from "../../components";
 
 export const HoroscopesContainerStyled = styled.div`
   max-width: 750px;
@@ -9,6 +11,7 @@ export const HoroscopesContainerStyled = styled.div`
 
 export const MainImageStyled = styled(Image)`
   margin-bottom: 60px;
+  margin-top: 20px;
 
   @media screen and (max-width: 900px) {
     margin-bottom: 40px;
@@ -33,4 +36,8 @@ export const MainGetAnswersStyled = styled(GetAnswers)`
 
 export const MainHoroscopeContentStyled = styled(HoroscopeContent)`
   ${sharedStyles};
+`;
+
+export const AdditionalNavigationStyled = styled(AdditionalNavigation)`
+  margin-top: 20px;
 `;

@@ -4,3 +4,10 @@ export const headerNavPages = [
   { url: "/b", name: "Магазин" },
   { url: "/c", name: "Блог" }
 ];
+
+export const additionalNavigation = [
+  { text: "Главная", url: "" },
+  { text: "Гороскопы", url: "" },
+  { text: "Любовь", url: "" },
+  { text: "Любовный гороскоп для одиноких", url: "" }
+];

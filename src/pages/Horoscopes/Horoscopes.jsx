@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { ContainerStyled } from "../../styled";
 import {
+  AdditionalNavigationStyled,
   HoroscopesContainerStyled,
   MainGetAnswersStyled,
   MainHoroscopeContentStyled,
@@ -21,12 +22,19 @@ import {
   OrderPlacement,
   Products
 } from "../../components";
-import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
+import {
+  additionalNavigation,
+  blogPostsList,
+  horoscopeContentList,
+  otherProductsList,
+  productsList
+} from "../../data";
 import { mainFormSchema } from "../../schemes";
 
 const Main = ({ nextStep }) => {
   return (
     <ContainerStyled>
+      <AdditionalNavigationStyled array={additionalNavigation} />
       <MainImageStyled src={woman} alt="Woman with a heart" width="100%" height="auto" />
       <HoroscopesContainerStyled>
         <MainForm nextStep={nextStep} />
