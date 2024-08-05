@@ -6,10 +6,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   BirthFormBirthtimeContainerStyled,
+  BirthFormBirthtimeTextFieldStyled,
   BirthFormContainerStyled,
   BirthFormDescriptionStyled,
   BirthFormInputsStyled,
+  BirthFormRadioButtonStyled,
   BirthFormStyled,
+  BirthFormTextFieldStyled,
   BirthFormTextStyled,
   BirthFormTitleStyled
 } from "./styled";
@@ -17,7 +20,7 @@ import {
 import calendar from "../../assets/images/calendar.svg";
 import clock from "../../assets/images/clock.svg";
 import { birthFormSchema } from "../../schemes";
-import { OrderButtonGroup, RadioButton, TextField } from "../ui";
+import { OrderButtonGroup, TextField } from "../ui";
 
 export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
   const {
@@ -59,7 +62,7 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
     <BirthFormStyled {...attrs} onSubmit={handleSubmit(onSubmit)}>
       <BirthFormTitleStyled>Информация о рождении</BirthFormTitleStyled>
       <BirthFormContainerStyled>
-        <TextField
+        <BirthFormTextFieldStyled
           masked={true}
           imageAttrs={{ src: calendar, alt: "Calendar icon", width: "20px", height: "20px" }}
           mask={birthMask}
@@ -67,7 +70,6 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
           id="birthday"
           label="Дата рождения"
           name="birthday"
-          style={{ width: "300px" }}
           {...register("birthday")}
           onChange={(e) => setValue("birthday", e.target.value)}
         />
@@ -76,33 +78,32 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
             name="birthtime"
             control={control}
             render={({ field }) => (
-              <TextField
+              <BirthFormBirthtimeTextFieldStyled
                 masked={true}
                 imageAttrs={{ src: clock, alt: "Clock icon", width: "20px", height: "20px" }}
                 mask={timeMask}
                 placeholder="00:00"
                 id="birthtime"
                 label="Время рождения"
-                style={{ width: "222px", marginRight: "10px" }}
                 {...field}
                 onChange={(e) => field.onChange(e)}
                 error={errors.birthtime?.message}
               />
             )}
           />
-          <RadioButton
+          <BirthFormRadioButtonStyled
             onChange={() => {
               const newValue = !birthtimeRadio;
               setValue("birthtimeRadio", newValue);
               if (newValue) {
-                setValue("birthtime", ""); // Reset birthtime input when radio button is clicked
+                setValue("birthtime", "");
               }
             }}
             name="birthtime-radio"
             checked={birthtimeRadio}
             value="birthtime-radio">
             Я не знаю время
-          </RadioButton>
+          </BirthFormRadioButtonStyled>
         </BirthFormBirthtimeContainerStyled>
       </BirthFormContainerStyled>
       <BirthFormDescriptionStyled>

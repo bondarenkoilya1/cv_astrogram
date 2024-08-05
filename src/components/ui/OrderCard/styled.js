@@ -6,6 +6,11 @@ export const OrderCardTitleStyled = styled.h2`
   font-weight: 500;
   line-height: 58px;
   text-transform: uppercase;
+
+  @media screen and (max-width: 500px) {
+    font-size: 36px;
+    line-height: 40px;
+  }
 `;
 
 export const OrderCardStyled = styled.div`
