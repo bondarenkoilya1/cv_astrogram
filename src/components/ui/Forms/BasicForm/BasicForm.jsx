@@ -3,6 +3,9 @@ import { Controller } from "react-hook-form";
 import PropTypes from "prop-types";
 
 import {
+  BasicFormBlockWithMarginTop,
+  BasicFormButtonStyled,
+  BasicFormCheckboxStyled,
   BasicFormContainerStyled,
   BasicFormFooterStyled,
   BasicFormLinkStyled,
@@ -10,12 +13,11 @@ import {
   BasicFormPriceStyled,
   BasicFormPriceSubtitleStyled,
   BasicFormStyled,
+  BasicFormTextFieldWithMarginRight,
   BasicFormTitleStyled
 } from "./styled";
 
 import { sexRadioGroup } from "../../../../data";
-import { Button } from "../../Button";
-import { Checkbox } from "../../Checkbox";
 import { RadioGroup } from "../../RadioGroup";
 import { TextField } from "../../TextField";
 
@@ -23,12 +25,11 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
   return (
     <BasicFormStyled {...attrs}>
       <BasicFormTitleStyled>Оформление</BasicFormTitleStyled>
-      <BasicFormContainerStyled style={{ marginTop: "20px" }}>
-        <TextField
+      <BasicFormContainerStyled>
+        <BasicFormTextFieldWithMarginRight
           id="user-name"
           label="Ваше имя"
           placeholder="Ваше имя"
-          style={{ marginRight: "32px" }}
           {...register("name")}
           name="name"
         />
@@ -45,39 +46,41 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
           )}
         />
       </BasicFormContainerStyled>
-      <TextField
-        id="user-email"
-        label="Почта"
-        placeholder="Ваша почта"
-        type="email"
-        style={{ marginTop: "30px" }}
-        name="email"
-        {...register("email")}
-      />
-      <Controller
-        name="policy"
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Checkbox
-            isChecked={value}
-            onChange={() => onChange(!value)}
-            type="squared"
-            style={{ marginTop: "30px" }}>
-            Согласие с&nbsp;
-            <BasicFormLinkStyled to="/policy" target="_blank">
-              политикой конфиденциальности
-            </BasicFormLinkStyled>
-          </Checkbox>
-        )}
-      />
-      <BasicFormFooterStyled style={{ marginTop: "30px" }}>
+      <BasicFormBlockWithMarginTop>
+        <TextField
+          id="user-email"
+          label="Почта"
+          placeholder="Ваша почта"
+          type="email"
+          name="email"
+          {...register("email")}
+        />
+      </BasicFormBlockWithMarginTop>
+      <BasicFormBlockWithMarginTop>
+        <Controller
+          name="policy"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <BasicFormCheckboxStyled
+              isChecked={value}
+              onChange={() => onChange(!value)}
+              type="squared">
+              Согласие с&nbsp;
+              <BasicFormLinkStyled to="/policy" target="_blank">
+                политикой конфиденциальности
+              </BasicFormLinkStyled>
+            </BasicFormCheckboxStyled>
+          )}
+        />
+      </BasicFormBlockWithMarginTop>
+      <BasicFormFooterStyled>
         <BasicFormPriceInformationStyled>
           <BasicFormPriceStyled>1 050 руб.</BasicFormPriceStyled>
           <BasicFormPriceSubtitleStyled>Сумма заказа</BasicFormPriceSubtitleStyled>
         </BasicFormPriceInformationStyled>
-        <Button type="submit" disabled={isSubmitting} appearance="filled">
+        <BasicFormButtonStyled type="submit" disabled={isSubmitting} appearance="filled">
           Перейти к оформлению
-        </Button>
+        </BasicFormButtonStyled>
       </BasicFormFooterStyled>
     </BasicFormStyled>
   );
