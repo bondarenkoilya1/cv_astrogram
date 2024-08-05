@@ -13,7 +13,6 @@ import {
 
 import { horoscopeCompositionAdditionalList, horoscopeCompositionMainList } from "../../data";
 import { mainFormSchema } from "../../schemes";
-import { HoroscopeComposition } from "../HoroscopeComposition";
 import { AddDiscount, BasicForm } from "../ui";
 
 export const MainForm = ({ nextStep }) => {
@@ -60,7 +59,7 @@ export const MainForm = ({ nextStep }) => {
         name="productsAdditional"
         control={control}
         render={({ field: { value, onChange } }) => (
-          <HoroscopeComposition
+          <MainFormHoroscopeCompositionStyled
             array={value}
             title="Дополнительно"
             onCheckboxChange={onChange}
