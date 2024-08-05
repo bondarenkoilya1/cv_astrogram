@@ -9,6 +9,9 @@ export const OrderPlacementStyled = styled.form`
   @media screen and (max-width: 860px) {
     max-width: 90%;
   }
+  @media screen and (max-width: 750px) {
+    margin-top: 40px;
+  }
 `;
 
 export const OrderPlacementTitleStyled = styled.h1`
@@ -100,6 +103,10 @@ export const OrderPlacementResultTitleStyled = styled.h4`
   font-weight: 500;
   line-height: 44px;
   text-transform: uppercase;
+
+  @media screen and (max-width: 380px) {
+    line-height: 44px;
+  }
 `;
 
 export const OrderPlacementResultContainerStyled = styled.div`
@@ -112,6 +119,10 @@ export const OrderPlacementPriceStyled = styled.p`
   font-size: 32px;
   font-weight: 700;
   line-height: 52px;
+
+  @media screen and (max-width: 380px) {
+    line-height: 32px;
+  }
 `;
 
 export const OrderPlacementPriceDescriptionStyled = styled.p`
