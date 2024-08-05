@@ -18,6 +18,11 @@ export const OrderPlacementTitleStyled = styled.h1`
   line-height: 64px;
   text-transform: uppercase;
   margin-bottom: 60px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 36px;
+    line-height: 42px;
+  }
 `;
 
 export const OrderCardRecipientHeaderStyled = styled.div`
