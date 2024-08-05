@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled, { css } from "@emotion/styled";
 
 import { GetAnswers, HoroscopeContent, Image } from "../../components";
 
@@ -19,10 +19,18 @@ export const MainImageStyled = styled(Image)`
   }
 `;
 
-export const MainGetAnswersStyled = styled(GetAnswers)`
+const sharedStyles = css`
   margin-top: 120px;
+
+  @media screen and (max-width: 910px) {
+    margin-top: 80px;
+  }
+`;
+
+export const MainGetAnswersStyled = styled(GetAnswers)`
+  ${sharedStyles};
 `;
 
 export const MainHoroscopeContentStyled = styled(HoroscopeContent)`
-  margin-top: 120px;
+  ${sharedStyles};
 `;
