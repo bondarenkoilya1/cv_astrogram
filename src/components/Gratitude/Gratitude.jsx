@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { ContainerStyled } from "../../styled";
-import { GratitudeOffersStyled, GratitudeOfferStyled } from "./styled";
+import { GratitudeOffersListStyled, GratitudeOfferStyled } from "./styled";
 
 import { gratitudeOffers } from "../../data";
 import { Thanks } from "../ui";
@@ -11,7 +11,7 @@ export const Gratitude = ({ resetForm }) => {
     <>
       <Thanks resetForm={resetForm} />
       <ContainerStyled>
-        <GratitudeOffersStyled>
+        <GratitudeOffersListStyled>
           {gratitudeOffers.map(({ imageSrc, imageAlt, title, description, linkText }) => (
             <GratitudeOfferStyled
               imageSrc={imageSrc}
@@ -23,7 +23,7 @@ export const Gratitude = ({ resetForm }) => {
               key={crypto.randomUUID()}
             />
           ))}
-        </GratitudeOffersStyled>
+        </GratitudeOffersListStyled>
       </ContainerStyled>
     </>
   );

@@ -20,7 +20,7 @@ export const Offer = ({
 }) => {
   return (
     <OfferStyled {...attrs}>
-      <Image src={imageSrc} alt={imageAlt} height="560px" width="100%" />
+      <Image src={imageSrc} alt={imageAlt} height="auto" width="100%" />
       <OfferTitleStyled>{title}</OfferTitleStyled>
       <OfferDescriptionStyled>{description}</OfferDescriptionStyled>
       <OfferLinkContainerStyled>

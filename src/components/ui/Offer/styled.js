@@ -11,6 +11,19 @@ export const OfferTitleStyled = styled.h2`
   font-weight: 500;
   line-height: 48px;
   text-align: center;
+
+  @media screen and (max-width: 1250px) {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  @media screen and (max-width: 970px) {
+    margin-top: 30px;
+  }
+  @media screen and (max-width: 340px) {
+    font-size: 22px;
+    line-height: 28px;
+  }
 `;
 
 export const OfferDescriptionStyled = styled.p`
@@ -25,4 +38,8 @@ export const OfferLinkContainerStyled = styled.div`
   margin-top: 44px;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 580px) {
+    margin-top: 30px;
+  }
 `;

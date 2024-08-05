@@ -146,6 +146,29 @@ export const HeaderNavProfileButtonStyled = styled(Link)`
   &:hover {
     background: linear-gradient(90deg, #5846fb, #ce66ff);
   }
+
+  @media screen and (max-width: 1024px) {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    border: 1px solid #332550;
+    margin-right: 10px;
+
+    &::before {
+      background: url(${userIcon}) center no-repeat;
+      width: 12px;
+      height: 16px;
+      margin-right: 0;
+    }
+
+    & > span {
+      display: none;
+    }
+  }
 `;
 
 export const HeaderNavButtonSpanStyled = styled.span``;
