@@ -9,6 +9,7 @@ export const OrderPlacementStyled = styled.form`
   @media screen and (max-width: 860px) {
     max-width: 90%;
   }
+
   @media screen and (max-width: 750px) {
     margin-top: 40px;
   }
