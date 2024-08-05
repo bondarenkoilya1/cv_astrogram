@@ -78,8 +78,8 @@ export const sliderStyled = css`
 export const GlobalStyle = css`
   ${emotionNormalize}
   ${connectFonts}
-  ${sliderStyled}
-	
+	${sliderStyled}
+ 
 	html {
     box-sizing: border-box;
   }

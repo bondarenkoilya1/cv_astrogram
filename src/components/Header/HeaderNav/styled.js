@@ -1,6 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import styled from "@emotion/styled";
+
+import arrowIcon from "../../../assets/images/header/arrow.svg";
+import userIcon from "../../../assets/images/header/user.svg";
 
 export const HeaderNavStyled = styled.nav`
   display: flex;
@@ -43,3 +46,51 @@ export const NavLinkStyled = styled(NavLink)`
     border: 1px solid #5846fb;
   }
 `;
+
+export const HeaderNavLoginButtonStyled = styled(Link)`
+  background: #222030;
+  padding: 20px 40px;
+  border-radius: 100px;
+  font-family: "SF Pro Text", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+
+  &::after {
+    content: "";
+    background: url(${arrowIcon}) center no-repeat;
+    width: 12px;
+    height: 10px;
+    display: inline-block;
+    margin-left: 9px;
+  }
+
+  &:hover {
+    background: linear-gradient(90deg, #5846fb, #ce66ff);
+  }
+`;
+
+export const HeaderNavProfileButtonStyled = styled(Link)`
+  background: #332550;
+  padding: 20px 40px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  font-family: "SF Pro Text", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+
+  &::before {
+    content: "";
+    background: url(${userIcon}) center no-repeat;
+    width: 12px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 12px;
+  }
+
+  &:hover {
+    background: linear-gradient(90deg, #5846fb, #ce66ff);
+  }
+`;
+
+export const HeaderNavButtonSpanStyled = styled.span``;

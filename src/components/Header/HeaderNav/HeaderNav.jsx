@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import {
+  HeaderNavButtonSpanStyled,
   HeaderNavListItemStyled,
   HeaderNavListStyled,
+  HeaderNavLoginButtonStyled,
+  HeaderNavProfileButtonStyled,
   HeaderNavStyled,
   NavLinkStyled
 } from "./styled";
@@ -28,17 +31,27 @@ const renderNavList = (array, onClick) => {
   );
 };
 
-export const HeaderNav = ({ resetForm }) => {
+export const HeaderNav = ({ resetForm, stage }) => {
   return (
     <HeaderNavStyled>
       <Link to="/" onClick={resetForm}>
         <Logo />
       </Link>
       {renderNavList(headerNavPages, resetForm)}
+      {stage === 5 ? (
+        <HeaderNavProfileButtonStyled to="/">
+          <HeaderNavButtonSpanStyled>Профиль</HeaderNavButtonSpanStyled>
+        </HeaderNavProfileButtonStyled>
+      ) : (
+        <HeaderNavLoginButtonStyled to="/">
+          <HeaderNavButtonSpanStyled>Войти</HeaderNavButtonSpanStyled>
+        </HeaderNavLoginButtonStyled>
+      )}
     </HeaderNavStyled>
   );
 };
 
 HeaderNav.propTypes = {
-  resetForm: PropTypes.func.isRequired
+  resetForm: PropTypes.func.isRequired,
+  stage: PropTypes.number.isRequired
 };
