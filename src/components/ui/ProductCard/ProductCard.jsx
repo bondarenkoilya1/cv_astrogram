@@ -24,7 +24,7 @@ const renderCheckbox = (type, isChecked) => {
       );
     case "gift":
       return (
-        <Checkbox isChecked={isChecked} type="text">
+        <Checkbox isChecked={isChecked} type="text" category="gift">
           {isChecked ? "В подарок " : "Добавить "}
         </Checkbox>
       );
@@ -51,7 +51,11 @@ export const ProductCard = ({ type, subtitle, title, isChecked, onChange, ...att
   };
 
   return (
-    <ProductCardStyled {...attrs} onClick={handleProductCardClick}>
+    <ProductCardStyled
+      {...attrs}
+      type={type}
+      isChecked={isChecked}
+      onClick={handleProductCardClick}>
       <ProductCardContentStyled>
         <ProductCardSubtitleStyled>{subtitle}</ProductCardSubtitleStyled>
         <ProductCardTitleStyled>{title}</ProductCardTitleStyled>

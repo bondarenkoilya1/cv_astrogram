@@ -11,8 +11,25 @@ export const ProductCardStyled = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  //  remove, add to two last children
   margin-bottom: 20px;
+
+  ${({ type, isChecked }) => {
+    if (type === "gift") {
+      return `
+        background: linear-gradient(90deg, #5846FB 0%, #A000BA 100%);
+        
+        & h6 {
+          color: #fff;
+        }
+      `;
+    }
+    if (isChecked) {
+      return `
+        background-color: #211D40;
+      `;
+    }
+    return "";
+  }}
 `;
 
 export const ProductCardContentStyled = styled.div`
@@ -23,13 +40,14 @@ export const ProductCardFooterStyled = styled.div`
   margin-top: auto;
 `;
 
-export const ProductCardSubtitleStyled = styled.div`
+export const ProductCardSubtitleStyled = styled.h6`
   font-size: 16px;
   line-height: 19px;
   color: #7c6dff;
+  font-weight: 400;
 `;
 
-export const ProductCardTitleStyled = styled.div`
+export const ProductCardTitleStyled = styled.h5`
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
