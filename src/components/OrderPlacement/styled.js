@@ -1,10 +1,14 @@
 import styled from "@emotion/styled";
 
-import { Checkbox, TextWithIcon } from "../ui";
+import { Button, Checkbox, TextWithIcon } from "../ui";
 
 export const OrderPlacementStyled = styled.form`
   max-width: 750px;
   margin: 80px auto 0 auto;
+
+  @media screen and (max-width: 860px) {
+    max-width: 90%;
+  }
 `;
 
 export const OrderPlacementTitleStyled = styled.h1`
@@ -14,6 +18,11 @@ export const OrderPlacementTitleStyled = styled.h1`
   line-height: 64px;
   text-transform: uppercase;
   margin-bottom: 60px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 36px;
+    line-height: 42px;
+  }
 `;
 
 export const OrderCardRecipientHeaderStyled = styled.div`
@@ -40,9 +49,25 @@ export const OrderCardRecipientContainerStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  @media screen and (max-width: 780px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const OrderCardRecipientListStyled = styled.ul``;
+
+export const OrderCardButtonStyled = styled(Button)`
+  &:hover {
+    background: linear-gradient(90deg, #5846fb 0%, #ce66ff 100%);
+  }
+
+  @media screen and (max-width: 780px) {
+    margin-top: 30px;
+    width: 100%;
+  }
+`;
 
 export const OrderCardInformationListStyled = styled.ul`
   display: flex;

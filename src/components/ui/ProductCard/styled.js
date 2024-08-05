@@ -13,6 +13,16 @@ export const ProductCardStyled = styled.li`
   justify-content: space-between;
   margin-bottom: 20px;
 
+  @media screen and (max-width: 580px) {
+    padding: 20px 15px;
+    margin-bottom: 10px;
+    width: 48.7%;
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 100%;
+  }
+
   ${({ type, isChecked }) => {
     if (type === "gift") {
       return `
@@ -23,6 +33,19 @@ export const ProductCardStyled = styled.li`
         }
       `;
     }
+    if (type === "additional") {
+      return `
+      @media screen and (max-width: 690px) {
+        width: 100%;
+      
+        & h5 {
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+      
+      ${isChecked ? `background-color: #211D40;` : ""}
+      `;
+    }
     if (isChecked) {
       return `
         background-color: #211D40;
@@ -30,16 +53,6 @@ export const ProductCardStyled = styled.li`
     }
     return "";
   }};
-
-  @media screen and (max-width: 580px) {
-    padding: 20px 15px;
-    margin-bottom: 10px;
-    width: 48.7%;
-  }
-
-  @media screen and (max-width: 350px) {
-    width: 100%;
-  }
 `;
 
 export const ProductCardContentStyled = styled.div`

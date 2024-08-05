@@ -31,7 +31,7 @@ export const LabelStyled = styled.label`
   }
 
   &[type="squared"] {
-    align-items: flex-end;
+    align-items: center;
     font-weight: 400;
     color: ${(props) => (props.textColor === "white" ? "#fff" : "#b2add8")};
   }

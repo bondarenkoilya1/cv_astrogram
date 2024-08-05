@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { ContainerStyled } from "../../styled";
-import { HeaderStyled } from "./styled";
+import { HeaderBorderStyled, HeaderStyled } from "./styled";
 
 import { HeaderNav } from "./HeaderNav";
 
@@ -11,6 +11,7 @@ export const Header = ({ stage, resetForm }) => {
       <ContainerStyled>
         <HeaderNav resetForm={resetForm} stage={stage} />
       </ContainerStyled>
+      <HeaderBorderStyled />
     </HeaderStyled>
   );
 };

@@ -33,7 +33,7 @@ const timePattern = /^\d{2}:\d{2}$/;
 export const birthFormSchema = z
   .object({
     birthday: z.string().regex(datePattern),
-    birthAddress: z.string().min(1),
+    birthAddress: z.string().min(1).max(48),
     birthCoordinates: z.string().optional(),
     birthtime: z.string().optional(),
     birthtimeRadio: z.boolean().optional()

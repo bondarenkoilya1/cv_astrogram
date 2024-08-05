@@ -14,5 +14,4 @@ export const RadioGroupTitleStyled = styled.h4`
 
 export const RadioGroupListStyled = styled.ul`
   display: flex;
-  align-items: center;
 `;

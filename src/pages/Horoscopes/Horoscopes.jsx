@@ -5,31 +5,42 @@ import PropTypes from "prop-types";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { ContainerStyled } from "../../styled";
-import { HoroscopesContainerStyled, MainImageStyled } from "./styled";
+import {
+  AdditionalNavigationStyled,
+  HoroscopesContainerStyled,
+  MainGetAnswersStyled,
+  MainHoroscopeContentStyled,
+  MainImageStyled
+} from "./styled";
 
 import woman from "../../assets/images/woman.png";
 import {
   AddDiscount,
   BirthForm,
-  GetAnswers,
   Gratitude,
-  HoroscopeContent,
   MainForm,
   OrderPlacement,
   Products
 } from "../../components";
-import { blogPostsList, horoscopeContentList, otherProductsList, productsList } from "../../data";
-import { mainFormSchema } from "../../schemes/index.js";
+import {
+  additionalNavigation,
+  blogPostsList,
+  horoscopeContentList,
+  otherProductsList,
+  productsList
+} from "../../data";
+import { mainFormSchema } from "../../schemes";
 
 const Main = ({ nextStep }) => {
   return (
     <ContainerStyled>
+      <AdditionalNavigationStyled array={additionalNavigation} />
       <MainImageStyled src={woman} alt="Woman with a heart" width="100%" height="auto" />
       <HoroscopesContainerStyled>
         <MainForm nextStep={nextStep} />
       </HoroscopesContainerStyled>
-      <HoroscopeContent array={horoscopeContentList} style={{ marginTop: "120px" }} />
-      <GetAnswers style={{ marginTop: "120px" }} />
+      <MainHoroscopeContentStyled array={horoscopeContentList} />
+      <MainGetAnswersStyled />
       <Products
         title="Погрузитесь в атмосферу настоящей астрологии"
         description="Ароматное  мыло и соль для ванны помогут подготовится  к новым романтическим открытиям"
