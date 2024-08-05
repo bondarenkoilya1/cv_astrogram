@@ -19,14 +19,14 @@ export const FooterWrapperStyled = styled.div`
   justify-content: space-between;
 
   @media screen and (max-width: 1410px) {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
 export const FooterCopyrightTextStyled = styled.p`
   @media screen and (max-width: 1410px) {
-    margin-top: 10px;
-    text-align: center;
+    margin-bottom: 20px;
   }
 `;
 
@@ -34,7 +34,6 @@ export const FooterInformationTextStyled = styled.p`
   font-weight: 700;
 
   @media screen and (max-width: 360px) {
-    text-align: center;
     font-size: 13px;
   }
 `;
