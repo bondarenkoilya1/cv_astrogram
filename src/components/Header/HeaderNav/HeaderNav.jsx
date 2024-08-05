@@ -3,21 +3,30 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import {
+  HeaderNavButtonSpanStyled,
   HeaderNavCloseButtonStyled,
   HeaderNavContainerStyled,
+  HeaderNavFunctionsContainerStyled,
   HeaderNavListItemStyled,
   HeaderNavListStyled,
+  HeaderNavLoginButtonStyled,
   HeaderNavOpenButton,
+  HeaderNavProfileButtonStyled,
   HeaderNavStyled,
   NavLinkStyled
 } from "./styled";
 
-import { ReactComponent as Logo } from "../../../assets/images/logo.svg";
-import { ReactComponent as CrossIcon } from "../../../assets/images/header/cross.svg";
 import { ReactComponent as BurgerIcon } from "../../../assets/images/header/burger.svg";
+import { ReactComponent as CrossIcon } from "../../../assets/images/header/cross.svg";
+import { ReactComponent as Logo } from "../../../assets/images/logo.svg";
 import { headerNavPages } from "../../../data";
 
-const renderNavList = (array, onClick, toggleNav) => {
+const renderNavList = (array, resetForm, toggleNav) => {
+  const handleClick = () => {
+    resetForm();
+    toggleNav();
+  };
+
   return (
     <HeaderNavListStyled>
       {array.map(({ url, name }) => (
@@ -25,7 +34,7 @@ const renderNavList = (array, onClick, toggleNav) => {
           <NavLinkStyled
             to={url}
             className={({ isActive }) => (isActive ? "active" : undefined)}
-            onClick={onClick}>
+            onClick={handleClick}>
             {name}
           </NavLinkStyled>
         </HeaderNavListItemStyled>
@@ -49,19 +58,21 @@ export const HeaderNav = ({ resetForm, stage }) => {
       </Link>
       <HeaderNavStyled ref={navRef}>
         {renderNavList(headerNavPages, resetForm, toggleNav)}
-        {/*{stage === 5 ? (*/}
-        {/*  <HeaderNavProfileButtonStyled to="/">*/}
-        {/*    <HeaderNavButtonSpanStyled>Профиль</HeaderNavButtonSpanStyled>*/}
-        {/*  </HeaderNavProfileButtonStyled>*/}
-        {/*) : (*/}
-        {/*  <HeaderNavLoginButtonStyled to="/">*/}
-        {/*    <HeaderNavButtonSpanStyled>Войти</HeaderNavButtonSpanStyled>*/}
-        {/*  </HeaderNavLoginButtonStyled>*/}
-        {/*)}*/}
       </HeaderNavStyled>
-      <HeaderNavOpenButton onClick={toggleNav}>
-        <BurgerIcon />
-      </HeaderNavOpenButton>
+      <HeaderNavFunctionsContainerStyled>
+        {stage === 5 ? (
+          <HeaderNavProfileButtonStyled to="/">
+            <HeaderNavButtonSpanStyled>Профиль</HeaderNavButtonSpanStyled>
+          </HeaderNavProfileButtonStyled>
+        ) : (
+          <HeaderNavLoginButtonStyled to="/">
+            <HeaderNavButtonSpanStyled>Войти</HeaderNavButtonSpanStyled>
+          </HeaderNavLoginButtonStyled>
+        )}
+        <HeaderNavOpenButton onClick={toggleNav}>
+          <BurgerIcon />
+        </HeaderNavOpenButton>
+      </HeaderNavFunctionsContainerStyled>
     </HeaderNavContainerStyled>
   );
 };
