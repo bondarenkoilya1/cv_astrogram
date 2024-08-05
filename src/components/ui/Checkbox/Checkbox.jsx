@@ -9,10 +9,16 @@ export const Checkbox = ({
   type,
   textColor,
   disabled = false,
+  category,
   ...attrs
 }) => {
   return (
-    <LabelStyled type={type} textColor={textColor} disabled={disabled} {...attrs}>
+    <LabelStyled
+      type={type}
+      textColor={textColor}
+      disabled={disabled}
+      category={category}
+      {...attrs}>
       {/* hidden to be able to customize */}
       <CheckboxSemanticStyled type="checkbox" checked={isChecked} onChange={onChange} />
       <CheckboxCustomStyled />
@@ -27,5 +33,6 @@ Checkbox.propTypes = {
   onChange: PropTypes.func,
   type: PropTypes.oneOf(["outline", "text", "squared"]).isRequired,
   textColor: PropTypes.oneOf(["white", "default"]),
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  category: PropTypes.string
 };

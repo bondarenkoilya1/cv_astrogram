@@ -11,6 +11,13 @@ export const LabelStyled = styled.label`
   font-weight: 700;
   line-height: 19px;
   cursor: pointer;
+  ${({ category }) =>
+    category === "gift" &&
+    `
+    & input:checked + span {
+      background: #fff url(${MarkBlue}) no-repeat center;
+    }
+  `}
 
   &[type="text"],
   &[type="squared"] {
