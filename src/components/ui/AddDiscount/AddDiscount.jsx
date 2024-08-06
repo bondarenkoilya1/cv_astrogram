@@ -2,17 +2,19 @@ import React from "react";
 import { Controller } from "react-hook-form";
 import PropTypes from "prop-types";
 
-import { VerticalLineStyled } from "../../../styled";
 import {
   AddDiscountContainerStyled,
   AddDiscountDescriptionStyled,
+  AddDiscountImageStyled,
   AddDiscountOldPriceStyled,
   AddDiscountPriceContainer,
   AddDiscountPriceStyled,
+  AddDiscountSeparator,
   AddDiscountStyled,
   AddDiscountTitleStyled
 } from "./styled";
 
+import discountImage from "../../../assets/images/add-discount/25-percents.png";
 import { Checkbox } from "../Checkbox";
 
 const renderPrice = (currentPrice, oldPrice) => {
@@ -34,6 +36,7 @@ export const AddDiscount = ({
 }) => {
   return (
     <AddDiscountStyled {...attrs}>
+      <AddDiscountImageStyled src={discountImage} />
       <AddDiscountTitleStyled>Получите весь набор со скидкой {discount}%</AddDiscountTitleStyled>
       <AddDiscountDescriptionStyled>
         Получите все дополнительные блоки гороскопа со скидкой
@@ -49,8 +52,7 @@ export const AddDiscount = ({
             </Checkbox>
           )}
         />
-
-        <VerticalLineStyled defaultMargin />
+        <AddDiscountSeparator defaultMargin />
         {renderPrice(currentPrice, oldPrice)}
       </AddDiscountContainerStyled>
     </AddDiscountStyled>
