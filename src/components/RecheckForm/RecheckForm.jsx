@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { RecheckFormStyled } from "./styled";
+import { RecheckFormContainerStyled, RecheckFormStyled, RecheckFormTitleStyled } from "./styled";
 
 import { horoscopeCompositionAdditionalList, horoscopeCompositionMainList } from "../../data/index";
 import { recheckFormSchema } from "../../schemes/index.js";
@@ -65,40 +65,43 @@ export const RecheckForm = ({ prevStep, nextStep }) => {
 
   return (
     <RecheckFormStyled onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="productsMain"
-        control={control}
-        render={({ field: { value } }) => (
-          <HoroscopeComposition array={value} title="Состав гороскопа" />
-        )}
-      />
-      <Controller
-        name="productsAdditional"
-        control={control}
-        render={({ field: { value, onChange } }) => {
-          const handleChange = (updatedValue) => {
-            onChange(updatedValue);
-            handleCheckboxChange(updatedValue);
-          };
-          return (
-            <HoroscopeComposition
-              array={value}
-              title="Дополнительно"
-              onCheckboxChange={handleChange}
-              style={{ marginTop: "60px" }}
-            />
-          );
-        }}
-      />
-      <AddDiscount
-        discount={25}
-        currentPrice={563}
-        oldPrice={750}
-        style={{ marginTop: "40px" }}
-        control={control}
-        checked={savedData ? savedData.addDiscount : false}
-      />
-      <OrderButtonGroup prevStep={prevStep} nextStep={handleSubmit(onSubmit)} />
+      <RecheckFormTitleStyled>Оформление гороскопа</RecheckFormTitleStyled>
+      <RecheckFormContainerStyled>
+        <Controller
+          name="productsMain"
+          control={control}
+          render={({ field: { value } }) => (
+            <HoroscopeComposition array={value} title="Состав гороскопа" />
+          )}
+        />
+        <Controller
+          name="productsAdditional"
+          control={control}
+          render={({ field: { value, onChange } }) => {
+            const handleChange = (updatedValue) => {
+              onChange(updatedValue);
+              handleCheckboxChange(updatedValue);
+            };
+            return (
+              <HoroscopeComposition
+                array={value}
+                title="Дополнительно"
+                onCheckboxChange={handleChange}
+                style={{ marginTop: "60px" }}
+              />
+            );
+          }}
+        />
+        <AddDiscount
+          discount={25}
+          currentPrice={563}
+          oldPrice={750}
+          style={{ marginTop: "40px" }}
+          control={control}
+          checked={savedData ? savedData.addDiscount : false}
+        />
+        <OrderButtonGroup prevStep={prevStep} nextStep={handleSubmit(onSubmit)} />
+      </RecheckFormContainerStyled>
     </RecheckFormStyled>
   );
 };
