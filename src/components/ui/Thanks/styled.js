@@ -12,7 +12,16 @@ export const ThanksStyled = styled.section`
     80% 80%,
     100vw 100vh;
   background-position: center bottom;
-  padding-top: 80px;
+  padding: 80px 0;
+
+  @media screen and (max-width: 1000px) {
+    background: linear-gradient(180deg, #020107 55%, #3e115e 100%);
+    height: auto;
+  }
+
+  @media screen and (max-width: 610px) {
+    padding: 60px 0;
+  }
 `;
 
 export const ThanksTitleStyled = styled.h1`
@@ -21,6 +30,13 @@ export const ThanksTitleStyled = styled.h1`
   font-weight: 500;
   line-height: 54px;
   text-transform: uppercase;
+  max-width: 80%;
+  margin: 0 auto;
+
+  @media screen and (max-width: 610px) {
+    font-size: 36px;
+    line-height: 44px;
+  }
 `;
 
 export const ThanksDescriptionStyled = styled.p`
@@ -28,6 +44,10 @@ export const ThanksDescriptionStyled = styled.p`
   line-height: 26px;
   max-width: 520px;
   margin: 0 auto;
+
+  @media screen and (max-width: 610px) {
+    max-width: 90%;
+  }
 `;
 
 export const ThanksTimerStyled = styled.p`
@@ -40,4 +60,8 @@ export const ThanksTimerStyled = styled.p`
 
 export const ThanksLinkStyled = styled(Link)`
   margin-top: 60px;
+
+  @media screen and (max-width: 610px) {
+    margin-top: 50px;
+  }
 `;
