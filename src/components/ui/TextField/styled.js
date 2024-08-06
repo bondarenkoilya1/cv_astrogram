@@ -57,8 +57,8 @@ export const TextFieldMaskedStyled = styled(MaskedInput)`
   font-size: 16px;
   color: #fff;
   line-height: 26px;
-  border: none;
   text-align: center;
+  border: ${({ error }) => (error ? "1px solid #D81236" : "none")};
 
   &::placeholder {
     color: #b2add8;
