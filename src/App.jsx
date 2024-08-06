@@ -16,18 +16,18 @@ export const App = () => {
 
   const resetForm = () => {
     setStage(1);
-    localStorage.removeItem("pageStage");
+    sessionStorage.removeItem("pageStage");
   };
 
   useEffect(() => {
-    const savedStage = JSON.parse(localStorage.getItem("pageStage"));
+    const savedStage = JSON.parse(sessionStorage.getItem("pageStage"));
     if (savedStage) {
       setStage(savedStage);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("pageStage", JSON.stringify(stage));
+    sessionStorage.setItem("pageStage", JSON.stringify(stage));
   }, [stage]);
 
   const nextStep = () => setStage((prevStage) => prevStage + 1);
