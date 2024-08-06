@@ -4,7 +4,7 @@ import { LabelStyled, RadioButtonCustomStyled, RadioButtonSemanticStyled } from 
 
 export const RadioButton = ({ children, name, value, checked, onChange, ...attrs }) => {
   return (
-    <LabelStyled {...attrs}>
+    <LabelStyled checked={checked} {...attrs}>
       {/* hidden to be able to customize */}
       <RadioButtonSemanticStyled
         type="radio"

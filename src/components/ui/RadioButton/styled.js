@@ -28,6 +28,13 @@ export const LabelStyled = styled.label`
     background: linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
     border-color: transparent;
   }
+
+  ${({ checked }) =>
+    checked &&
+    `
+        background: linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
+        border: none
+  `}
 `;
 
 export const RadioButtonSemanticStyled = styled.input`
@@ -40,7 +47,7 @@ export const RadioButtonSemanticStyled = styled.input`
 
   &:checked + span {
     border: none;
-    background: #5846fb url(${Mark}) no-repeat center;
+    background: #fff url(${MarkBlue}) no-repeat center;
   }
 `;
 
