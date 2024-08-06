@@ -36,7 +36,7 @@ export const AddDiscount = ({
 }) => {
   return (
     <AddDiscountStyled {...attrs}>
-      <AddDiscountImageStyled src={discountImage} />
+      <AddDiscountImageStyled src={discountImage} alt="25% discount" />
       <AddDiscountTitleStyled>Получите весь набор со скидкой {discount}%</AddDiscountTitleStyled>
       <AddDiscountDescriptionStyled>
         Получите все дополнительные блоки гороскопа со скидкой
