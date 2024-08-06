@@ -52,7 +52,11 @@ const OrderCardInformationHeader = () => {
 };
 
 export const OrderPlacement = ({ prevStep, nextStep }) => {
-  const { control, handleSubmit } = useForm({ resolver: zodResolver(paymentMethodSchema) });
+  const {
+    control,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({ resolver: zodResolver(paymentMethodSchema) });
 
   const onSubmit = (data) => {
     nextStep();
@@ -139,6 +143,7 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
             onChange={onChange}
             title="Способ оплаты"
             isTitleUppercase={true}
+            error={!!errors.paymentMethod}
           />
         )}
       />

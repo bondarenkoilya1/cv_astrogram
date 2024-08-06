@@ -2,15 +2,22 @@ import { Link } from "react-router-dom";
 
 import styled from "@emotion/styled";
 
+import { Image } from "../../Image";
+
 export const BlogSliderCardStyled = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-export const BlogSliderCardLinkStyled = styled(Link)``;
+export const BlogSliderCardLinkStyled = styled(Link)`
+  outline: none;
+`;
 
-export const BlogSliderCardImageStyled = styled.img``;
+export const BlogSliderCardImageStyled = styled(Image)`
+  width: 100%;
+  height: auto;
+`;
 
 export const BlogSliderCardTitleStyled = styled.h4`
   display: -webkit-box;

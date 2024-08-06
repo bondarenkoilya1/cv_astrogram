@@ -1,8 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
-
-import { zodResolver } from "@hookform/resolvers/zod";
 
 import { ContainerStyled } from "../../styled";
 import {
@@ -14,14 +11,8 @@ import {
 } from "./styled";
 
 import woman from "../../assets/images/woman.png";
-import {
-  AddDiscount,
-  BirthForm,
-  Gratitude,
-  MainForm,
-  OrderPlacement,
-  Products
-} from "../../components";
+import { BirthForm, Gratitude, MainForm, OrderPlacement, Products } from "../../components";
+import { RecheckForm } from "../../components/RecheckForm/RecheckForm.jsx";
 import {
   additionalNavigation,
   blogPostsList,
@@ -29,7 +20,6 @@ import {
   otherProductsList,
   productsList
 } from "../../data";
-import { mainFormSchema } from "../../schemes";
 
 const Main = ({ nextStep }) => {
   return (
@@ -69,15 +59,6 @@ Main.propTypes = {
 };
 
 export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
-  const savedData = JSON.parse(localStorage.getItem("data"));
-
-  const { control } = useForm({
-    resolver: zodResolver(mainFormSchema),
-    defaultValues: {
-      addDiscount: savedData.addDiscount
-    }
-  });
-
   switch (stage) {
     case 1:
       return <Main nextStep={nextStep} />;
@@ -90,16 +71,7 @@ export const Horoscopes = ({ stage, nextStep, prevStep, resetForm }) => {
     case 3:
       return (
         <HoroscopesContainerStyled>
-          3<button onClick={prevStep}>Prev</button>
-          <button onClick={nextStep}>Next</button>`
-          <AddDiscount
-            discount={25}
-            currentPrice={563}
-            oldPrice={750}
-            style={{ marginTop: "40px" }}
-            control={control}
-            checked={savedData.addDiscount}
-          />
+          <RecheckForm prevStep={prevStep} nextStep={nextStep} />
         </HoroscopesContainerStyled>
       );
     case 4:

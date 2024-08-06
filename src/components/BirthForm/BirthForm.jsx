@@ -19,6 +19,7 @@ import {
 
 import calendar from "../../assets/images/calendar.svg";
 import clock from "../../assets/images/clock.svg";
+import { birthMask, timeMask } from "../../masks";
 import { birthFormSchema } from "../../schemes";
 import { OrderButtonGroup, TextField } from "../ui";
 
@@ -55,9 +56,6 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
     nextStep();
   };
 
-  const birthMask = [/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/];
-  const timeMask = [/\d/, /\d/, ":", /\d/, /\d/];
-
   return (
     <BirthFormStyled {...attrs} onSubmit={handleSubmit(onSubmit)}>
       <BirthFormTitleStyled>Информация о рождении</BirthFormTitleStyled>
@@ -72,6 +70,7 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
           name="birthday"
           {...register("birthday")}
           onChange={(e) => setValue("birthday", e.target.value)}
+          error={!!errors.birthday}
         />
         <BirthFormBirthtimeContainerStyled>
           <Controller
@@ -87,7 +86,7 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
                 label="Время рождения"
                 {...field}
                 onChange={(e) => field.onChange(e)}
-                error={errors.birthtime?.message}
+                error={!!errors.birthtime}
               />
             )}
           />
@@ -101,7 +100,8 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
             }}
             name="birthtime-radio"
             checked={birthtimeRadio}
-            value="birthtime-radio">
+            value="birthtime-radio"
+            error={!!errors.birthtime}>
             Я не знаю время
           </BirthFormRadioButtonStyled>
         </BirthFormBirthtimeContainerStyled>
@@ -124,6 +124,7 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
           label="Адрес рождения"
           placeholder="Введите адрес"
           {...register("birthAddress")}
+          error={!!errors.birthAddress}
         />
         <TextField
           id="birth-coordinates"
@@ -132,6 +133,7 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
           placeholder="Введите координаты"
           style={{ marginTop: "40px" }}
           {...register("birthCoordinates")}
+          error={!!errors.birthCoordinates}
         />
       </BirthFormInputsStyled>
       <OrderButtonGroup prevStep={prevStep} nextStep={handleSubmit(onSubmit)} />

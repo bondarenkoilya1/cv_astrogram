@@ -38,6 +38,7 @@ const TextField = forwardRef((props, ref) => {
             id={id}
             placeholder={placeholder}
             autoComplete="off"
+            error={error}
             {...attrs}
           />
         </TextFieldMaskedFieldContainerStyled>
