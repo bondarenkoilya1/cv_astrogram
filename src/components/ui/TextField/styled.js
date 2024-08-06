@@ -26,6 +26,7 @@ export const TextFieldStyled = styled.input`
   padding: 14px 30px;
   border: none;
   outline: none;
+  border: ${({ error }) => (error ? "1px solid #D81236" : "none")};
 
   &::placeholder {
     color: #b2add8;

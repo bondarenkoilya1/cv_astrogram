@@ -80,7 +80,7 @@ export const CheckboxCustomStyled = styled.span`
   position: absolute;
   width: 20px;
   height: 20px;
-  border: 1px solid #50536a;
   border-radius: 100%;
   margin-left: -30px;
+  border: ${({ error }) => (error ? "1px solid #D81236" : "1px solid #50536a")};
 `;

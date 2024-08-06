@@ -9,6 +9,10 @@ export const GratitudeOffersListStyled = styled.ul`
   @media screen and (max-width: 1130px) {
     margin-bottom: 120px;
   }
+
+  @media screen and (max-width: 610px) {
+    margin-top: 60px;
+  }
 `;
 
 export const GratitudeOfferStyled = styled(Offer)`

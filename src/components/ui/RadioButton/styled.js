@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-import Mark from "../../../assets/images/checkbox/mark.svg";
 import MarkBlue from "../../../assets/images/checkbox/mark-blue.svg";
 
 export const LabelStyled = styled.label`
@@ -12,7 +11,6 @@ export const LabelStyled = styled.label`
   line-height: 19px;
   cursor: pointer;
 
-  border: 1px solid #fff;
   border-radius: 100px;
   padding: 14px 20px 14px 50px;
 
@@ -28,6 +26,15 @@ export const LabelStyled = styled.label`
     background: linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
     border-color: transparent;
   }
+
+  ${({ checked }) =>
+    checked &&
+    `
+        background: linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
+        border: none
+  `}
+
+  border: ${({ error }) => (error ? "1px solid #D81236" : "1px solid #fff")};
 `;
 
 export const RadioButtonSemanticStyled = styled.input`
@@ -40,7 +47,7 @@ export const RadioButtonSemanticStyled = styled.input`
 
   &:checked + span {
     border: none;
-    background: #5846fb url(${Mark}) no-repeat center;
+    background: #fff url(${MarkBlue}) no-repeat center;
   }
 `;
 
@@ -48,7 +55,7 @@ export const RadioButtonCustomStyled = styled.span`
   position: absolute;
   width: 20px;
   height: 20px;
-  border: 1px solid #50536a;
   border-radius: 100%;
   margin-left: -30px;
+  border: 1px solid #50536a;
 `;

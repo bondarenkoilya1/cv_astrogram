@@ -7,6 +7,7 @@ import {
   BasicFormButtonStyled,
   BasicFormCheckboxStyled,
   BasicFormContainerStyled,
+  BasicFormErrorTextStyled,
   BasicFormFooterStyled,
   BasicFormLinkStyled,
   BasicFormPriceInformationStyled,
@@ -21,7 +22,7 @@ import { sexRadioGroup } from "../../../../data";
 import { RadioGroup } from "../../RadioGroup";
 import { TextField } from "../../TextField";
 
-export const BasicForm = ({ register, isSubmitting = false, control = {}, ...attrs }) => {
+export const BasicForm = ({ register, isSubmitting = false, control = {}, errors, ...attrs }) => {
   return (
     <BasicFormStyled {...attrs}>
       <BasicFormTitleStyled>Оформление</BasicFormTitleStyled>
@@ -32,6 +33,7 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
           placeholder="Ваше имя"
           {...register("name")}
           name="name"
+          error={!!errors.name}
         />
         <Controller
           name="sex"
@@ -42,6 +44,7 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
               selectedValue={value}
               onChange={onChange}
               title="Ваш пол"
+              error={!!errors.sex}
             />
           )}
         />
@@ -54,6 +57,7 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
           type="email"
           name="email"
           {...register("email")}
+          error={!!errors.email}
         />
       </BasicFormBlockWithMarginTop>
       <BasicFormBlockWithMarginTop>
@@ -64,7 +68,8 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
             <BasicFormCheckboxStyled
               isChecked={value}
               onChange={() => onChange(!value)}
-              type="squared">
+              type="squared"
+              error={!!errors.policy}>
               Согласие с&nbsp;
               <BasicFormLinkStyled to="/policy" target="_blank">
                 политикой конфиденциальности
@@ -82,6 +87,11 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
           Перейти к оформлению
         </BasicFormButtonStyled>
       </BasicFormFooterStyled>
+      {Object.keys(errors).length > 0 && (
+        <BasicFormErrorTextStyled>
+          Пожалуйста проверьте правильность заполнения всех полей
+        </BasicFormErrorTextStyled>
+      )}
     </BasicFormStyled>
   );
 };
@@ -89,5 +99,6 @@ export const BasicForm = ({ register, isSubmitting = false, control = {}, ...att
 BasicForm.propTypes = {
   register: PropTypes.func.isRequired,
   isSubmitting: PropTypes.bool,
-  control: PropTypes.object
+  control: PropTypes.object,
+  errors: PropTypes.object
 };
