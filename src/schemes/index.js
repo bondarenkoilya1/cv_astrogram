@@ -26,6 +26,17 @@ export const paymentMethodSchema = z.object({
   paymentMethod: z.string().min(1)
 });
 
+export const recheckFormSchema = z.object({
+  productsMain: z
+    .array(productSchema)
+    .nonempty()
+    .refine((products) =>
+      products.some((p) => (p.type === "main" || p.type === "gift") && p.isChecked)
+    ),
+  productsAdditional: z.array(productSchema).optional(),
+  addDiscount: z.boolean()
+});
+
 // birth form
 const datePattern = /^\d{2}\.\d{2}\.\d{4}$/;
 const timePattern = /^\d{2}:\d{2}$/;
