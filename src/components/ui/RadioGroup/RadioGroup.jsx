@@ -9,6 +9,7 @@ export const RadioGroup = ({
   selectedValue,
   onChange,
   title = "",
+  error,
   isTitleUppercase = false
 }) => {
   return (
@@ -25,6 +26,7 @@ export const RadioGroup = ({
               checked={selectedValue === value}
               onChange={() => onChange(value)}
               key={crypto.randomUUID()}
+              error={error}
               style={{ marginRight: "10px" }}>
               {text}
             </RadioButton>
@@ -45,5 +47,6 @@ RadioGroup.propTypes = {
   selectedValue: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   title: PropTypes.string,
-  isTitleUppercase: PropTypes.bool
+  isTitleUppercase: PropTypes.bool,
+  error: PropTypes.bool
 };

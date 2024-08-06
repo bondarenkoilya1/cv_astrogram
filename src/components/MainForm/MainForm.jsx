@@ -79,10 +79,8 @@ export const MainForm = ({ nextStep }) => {
         register={register}
         isSubmitting={isSubmitting}
         control={control}
+        errors={errors}
       />
-      {Object.keys(errors).length > 0 && (
-        <h2>Пожалуйста проверьте правильность заполнения всех полей</h2>
-      )}
     </MainFormStyled>
   );
 };

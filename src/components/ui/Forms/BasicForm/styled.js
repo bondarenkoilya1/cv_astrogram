@@ -102,3 +102,11 @@ export const BasicFormCheckboxStyled = styled(Checkbox)`
     font-size: 12px;
   }
 `;
+
+export const BasicFormErrorTextStyled = styled.p`
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  color: #d81236;
+  margin-top: 30px;
+`;
