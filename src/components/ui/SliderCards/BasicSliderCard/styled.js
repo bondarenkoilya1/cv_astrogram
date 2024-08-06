@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 
 import styled from "@emotion/styled";
 
-export const BasicSliderCardStyled = styled.li`
+export const BasicSliderCardStyled = styled.div`
   background-color: #1e1d29;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  margin: 0 10px;
 `;
 
 export const BasicSliderCardImageStyled = styled.img`
