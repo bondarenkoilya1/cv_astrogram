@@ -11,8 +11,14 @@ import {
 } from "./styled";
 
 import woman from "../../assets/images/woman.png";
-import { BirthForm, Gratitude, MainForm, OrderPlacement, Products } from "../../components";
-import { RecheckForm } from "../../components/RecheckForm/RecheckForm.jsx";
+import {
+  BirthForm,
+  Gratitude,
+  MainForm,
+  OrderPlacement,
+  Products,
+  RecheckForm
+} from "../../components";
 import {
   additionalNavigation,
   blogPostsList,
@@ -42,6 +48,7 @@ const Main = ({ nextStep }) => {
         description="У нас есть ответы и на другие составляющие твоей жизни"
         array={otherProductsList}
         style={{ marginTop: "120px" }}
+        type="additional"
       />
       <Products
         title="Блог"
