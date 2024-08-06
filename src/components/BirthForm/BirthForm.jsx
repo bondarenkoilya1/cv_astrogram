@@ -19,6 +19,7 @@ import {
 
 import calendar from "../../assets/images/calendar.svg";
 import clock from "../../assets/images/clock.svg";
+import { birthMask, timeMask } from "../../masks";
 import { birthFormSchema } from "../../schemes";
 import { OrderButtonGroup, TextField } from "../ui";
 
@@ -54,9 +55,6 @@ export const BirthForm = ({ prevStep, nextStep, ...attrs }) => {
     localStorage.setItem("birthInformation", JSON.stringify(data));
     nextStep();
   };
-
-  const birthMask = [/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/];
-  const timeMask = [/\d/, /\d/, ":", /\d/, /\d/];
 
   return (
     <BirthFormStyled {...attrs} onSubmit={handleSubmit(onSubmit)}>
