@@ -9,6 +9,10 @@ import rightArrowIcon from "./assets/images/slider/right-arrow.svg";
 import { connectFonts } from "./fonts";
 
 export const sliderStyled = css`
+  .slider-container {
+    margin: 40px 20px;
+  }
+
   .slick-dots {
     bottom: -55px;
   }
@@ -72,6 +76,43 @@ export const sliderStyled = css`
 
   .slick-slide > div {
     margin-inline: 10px;
+  }
+
+  /* hiding all bullets by default */
+  .slick-dots li {
+    display: none;
+  }
+  /* only displaying the active bullets and the 2 bullets next to it */
+  .slick-dots li.slick-active,
+  .slick-dots li.slick-active + li,
+  .slick-dots li.slick-active + li + li {
+    display: block;
+  }
+  /* displaying the last three bullets when slick-active class isn't applied to any li before them  */
+  .slick-dots li:nth-last-of-type(1),
+  .slick-dots li:nth-last-of-type(2),
+  .slick-dots li:nth-last-of-type(3) {
+    display: block;
+  }
+  /* hiding the last three bullets if slick-active exist before them */
+  .slick-dots li.slick-active ~ li:nth-last-of-type(1),
+  .slick-dots li.slick-active ~ li:nth-last-of-type(2),
+  .slick-dots li.slick-active ~ li:nth-last-of-type(3) {
+    display: none;
+  }
+  /* specific conditions to always display the last three bullets */
+  .slick-dots li.slick-active + li + li:nth-last-of-type(3),
+  .slick-dots li.slick-active + li + li:nth-last-of-type(2),
+  .slick-dots li.slick-active + li + li:nth-last-of-type(1),
+  .slick-dots li.slick-active + li:nth-last-of-type(3),
+  .slick-dots li.slick-active + li:nth-last-of-type(2),
+  .slick-dots li.slick-active + li:nth-last-of-type(1) {
+    display: block;
+  }
+
+  .slick-dots {
+    display: flex !important;
+    justify-content: center;
   }
 `;
 

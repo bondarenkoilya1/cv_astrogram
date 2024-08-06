@@ -9,7 +9,31 @@ const defaultSettings = {
   infinite: true,
   speed: 1000,
   slidesToShow: 4,
-  slidesToScroll: 4
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1770,
+      settings: {
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 940,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false
+      }
+    }
+  ]
 };
 
 export const BlogProductsSlider = ({ array, ...attrs }) => {
