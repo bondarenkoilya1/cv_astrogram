@@ -51,6 +51,21 @@ export const GlobalStyle = css`
   .carousel {
     position: unset;
   }
+
+  .carousel-dots {
+    bottom: 8%;
+
+    & li button {
+      background: #ada4e7;
+      border: none;
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .react-multi-carousel-dot--active > button {
+    background-color: #5846fb !important;
+  }
 `;
 
 export const ContainerStyled = styled.div`

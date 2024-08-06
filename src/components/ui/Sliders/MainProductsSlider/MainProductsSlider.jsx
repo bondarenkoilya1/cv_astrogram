@@ -2,11 +2,12 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import PropTypes from "prop-types";
 
+import { MainProductsSliderContainer } from "./styled.js";
+
 import { BasicSliderCard } from "../../SliderCards";
 import { CustomArrow } from "../CustomArrow";
 
 import "react-multi-carousel/lib/styles.css";
-import { MainProductsSliderContainer } from "./styled.js";
 
 export const MainProductsSlider = ({ array, ...attrs }) => {
   return (
@@ -15,9 +16,9 @@ export const MainProductsSlider = ({ array, ...attrs }) => {
         arrows
         customLeftArrow={<CustomArrow type="prev" />}
         customRightArrow={<CustomArrow type="next" />}
+        showDots
         infinite={true}
         draggable
-        showDots
         slidesToSlide={5}
         responsive={{
           desktop: {
@@ -28,7 +29,8 @@ export const MainProductsSlider = ({ array, ...attrs }) => {
             items: 5
           }
         }}
-        className="carousel">
+        className="carousel"
+        dotListClass="carousel-dots">
         {array.map(({ imageSrc, category, title, currentPrice, oldPrice }) => (
           <BasicSliderCard
             imageSrc={imageSrc}
