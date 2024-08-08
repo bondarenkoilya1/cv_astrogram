@@ -39,14 +39,3 @@ export const AdditionalNavigationLinkStyled = styled(Link)`
     color: #b2add8;
   }
 `;
-
-export const AdditionalNavigationSeparatorStyled = styled.span`
-  width: 3px;
-  height: 3px;
-  border-radius: 100%;
-  background-color: #b2add8;
-
-  @media screen and (max-width: 640px) {
-    display: none;
-  }
-`;
