@@ -19,6 +19,15 @@ export const LabelStyled = styled.label`
     }
   `}
 
+  ${({ isChecked, type }) =>
+    isChecked &&
+    type === "outline" &&
+    ` 
+      background: linear-gradient(90deg, #5846fb 0%, #a000ba 100%);
+      border-color: transparent !important;
+    `}
+
+
   &[type="text"],
   &[type="squared"] {
     margin-left: 30px;
@@ -45,6 +54,10 @@ export const LabelStyled = styled.label`
   }
 
   &[type="outline"]:hover > input:checked + span {
+    background: #fff url(${MarkBlue}) no-repeat center;
+  }
+
+  &[type="outline"] > input:checked + span {
     background: #fff url(${MarkBlue}) no-repeat center;
   }
 

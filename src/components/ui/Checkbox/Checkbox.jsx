@@ -19,6 +19,7 @@ export const Checkbox = ({
       textColor={textColor}
       disabled={disabled}
       category={category}
+      isChecked={isChecked}
       {...attrs}>
       {/* hidden to be able to customize */}
       <CheckboxSemanticStyled type="checkbox" checked={isChecked} onChange={onChange} />
