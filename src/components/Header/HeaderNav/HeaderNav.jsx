@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   HeaderNavButtonSpanStyled,
@@ -30,7 +31,7 @@ const renderNavList = (array, resetForm, toggleNav) => {
   return (
     <HeaderNavListStyled>
       {array.map(({ url, name }) => (
-        <HeaderNavListItemStyled key={crypto.randomUUID()}>
+        <HeaderNavListItemStyled key={uuidv4()}>
           <NavLinkStyled
             to={url}
             className={({ isActive }) => (isActive ? "active" : undefined)}

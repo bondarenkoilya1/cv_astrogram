@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   HoroscopeContentListStyled,
@@ -19,7 +20,7 @@ export const HoroscopeContent = ({ array, ...attrs }) => {
             title={title}
             description={description}
             backgroundName={backgroundName}
-            key={crypto.randomUUID()}
+            key={uuidv4()}
           />
         ))}
       </HoroscopeContentListStyled>

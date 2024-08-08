@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import { RadioGroupListStyled, RadioGroupStyled, RadioGroupTitleStyled } from "./styled";
 
@@ -25,7 +26,7 @@ export const RadioGroup = ({
               value={value}
               checked={selectedValue === value}
               onChange={() => onChange(value)}
-              key={crypto.randomUUID()}
+              key={uuidv4()}
               error={error}
               style={{ marginRight: "10px" }}>
               {text}

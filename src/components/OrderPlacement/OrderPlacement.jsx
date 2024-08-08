@@ -1,6 +1,7 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -101,7 +102,7 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
         <OrderCardRecipientContainerStyled>
           <OrderCardRecipientListStyled>
             {recipientArray.map(({ icon, text }) => (
-              <TextWithIconStyled icon={icon} key={crypto.randomUUID()}>
+              <TextWithIconStyled icon={icon} key={uuidv4()}>
                 {text}
               </TextWithIconStyled>
             ))}
@@ -117,7 +118,7 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
                 type="squared"
                 isChecked={true}
                 textColor="white"
-                key={crypto.randomUUID()}>
+                key={uuidv4()}>
                 {text}
               </OrderCardInformationCheckboxStyled>
             ))}
@@ -126,7 +127,7 @@ export const OrderPlacement = ({ prevStep, nextStep }) => {
                 type="squared"
                 isChecked={false}
                 disabled={true}
-                key={crypto.randomUUID()}>
+                key={uuidv4()}>
                 {text}
               </OrderCardInformationCheckboxStyled>
             ))}

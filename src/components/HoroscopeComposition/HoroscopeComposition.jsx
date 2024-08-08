@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   HoroscopeCompositionListStyled,
@@ -22,7 +23,7 @@ export const HoroscopeComposition = ({ array, title, onCheckboxChange = () => {}
       <HoroscopeCompositionListStyled>
         {array.map((product, index) => (
           <ProductCard
-            key={crypto.randomUUID()}
+            key={uuidv4()}
             type={product.type}
             subtitle={product.subtitle}
             title={product.title}
