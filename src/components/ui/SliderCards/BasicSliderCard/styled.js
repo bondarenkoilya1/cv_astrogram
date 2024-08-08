@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import styled from "@emotion/styled";
 
+import { Image } from "../../Image";
+
 export const BasicSliderCardStyled = styled.div`
   background-color: #1e1d29;
   border-radius: 10px;
@@ -12,8 +14,10 @@ export const BasicSliderCardStyled = styled.div`
   margin: 0 10px;
 `;
 
-export const BasicSliderCardImageStyled = styled.img`
+export const BasicSliderCardImageStyled = styled(Image)`
   margin-bottom: -27px;
+  width: 100%;
+  height: auto;
 `;
 
 export const BasicSliderCardContentStyled = styled.div`
@@ -21,6 +25,20 @@ export const BasicSliderCardContentStyled = styled.div`
   flex-direction: column;
   flex-grow: 1;
   padding: 20px 20px 30px 20px;
+  height: 214px;
+
+  @media screen and (max-width: 630px) {
+    height: 280px;
+  }
+
+  @media screen and (max-width: 560px) {
+    height: 230px;
+  }
+
+  @media screen and (max-width: 360px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `;
 
 export const BasicSliderCardCategoryStyled = styled.h5`
@@ -43,6 +61,10 @@ export const BasicSliderCardTitleStyled = styled.h4`
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
+
+  @media screen and (max-width: 360px) {
+    font-size: 14px;
+  }
 `;
 
 export const BasicSliderCardContainerStyled = styled.div`
@@ -65,6 +87,10 @@ export const BasicSliderCardCurrentPriceStyled = styled.p`
   font-size: 16px;
   font-weight: 700;
   line-height: 22px;
+
+  @media screen and (max-width: 360px) {
+    font-size: 14px;
+  }
 `;
 
 export const BasicSliderCardButtonStyled = styled(Link)`

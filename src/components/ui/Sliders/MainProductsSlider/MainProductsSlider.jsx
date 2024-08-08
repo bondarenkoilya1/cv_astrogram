@@ -1,36 +1,45 @@
 import React from "react";
-import Carousel from "react-multi-carousel";
+import Slider from "react-slick";
 import PropTypes from "prop-types";
 
-import { MainProductsSliderContainer } from "./styled.js";
-
 import { BasicSliderCard } from "../../SliderCards";
-import { CustomArrow } from "../CustomArrow";
 
-import "react-multi-carousel/lib/styles.css";
+const defaultSettings = {
+  dots: true,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1770,
+      settings: {
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 1270,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 780,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        arrows: false
+      }
+    }
+  ]
+};
 
 export const MainProductsSlider = ({ array, ...attrs }) => {
   return (
-    <MainProductsSliderContainer {...attrs}>
-      <Carousel
-        arrows
-        customLeftArrow={<CustomArrow type="prev" />}
-        customRightArrow={<CustomArrow type="next" />}
-        showDots
-        infinite={true}
-        draggable
-        slidesToSlide={5}
-        responsive={{
-          desktop: {
-            breakpoint: {
-              max: 3000,
-              min: 1024
-            },
-            items: 5
-          }
-        }}
-        className="carousel"
-        dotListClass="carousel-dots">
+    <div className="slider-container" {...attrs}>
+      <Slider {...defaultSettings}>
         {array.map(({ imageSrc, category, title, currentPrice, oldPrice }) => (
           <BasicSliderCard
             imageSrc={imageSrc}
@@ -41,8 +50,8 @@ export const MainProductsSlider = ({ array, ...attrs }) => {
             key={crypto.randomUUID()}
           />
         ))}
-      </Carousel>
-    </MainProductsSliderContainer>
+      </Slider>
+    </div>
   );
 };
 
