@@ -30,6 +30,10 @@ export const App = () => {
     sessionStorage.setItem("pageStage", JSON.stringify(stage));
   }, [stage]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [stage]);
+
   const nextStep = () => setStage((prevStage) => prevStage + 1);
   const prevStep = () => setStage((prevStage) => prevStage - 1);
 
