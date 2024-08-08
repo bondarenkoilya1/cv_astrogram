@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   AdditionalNavigationItemStyled,
@@ -14,7 +15,7 @@ export const AdditionalNavigation = ({ array, ...attrs }) => {
         const { text, url } = item;
 
         return (
-          <AdditionalNavigationItemStyled key={crypto.randomUUID()}>
+          <AdditionalNavigationItemStyled key={uuidv4()}>
             <AdditionalNavigationLinkStyled to={url}>{text}</AdditionalNavigationLinkStyled>
             {index < array.length - 1 && <AdditionalNavigationSeparatorStyled />}
           </AdditionalNavigationItemStyled>

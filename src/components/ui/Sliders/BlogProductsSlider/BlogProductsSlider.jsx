@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import { BlogSliderCard } from "../../SliderCards";
 
@@ -41,7 +42,7 @@ export const BlogProductsSlider = ({ array, ...attrs }) => {
     <div className="slider-container" {...attrs}>
       <Slider {...defaultSettings}>
         {array.map(({ imageSrc, title }) => (
-          <BlogSliderCard imageSrc={imageSrc} title={title} key={crypto.randomUUID()} />
+          <BlogSliderCard imageSrc={imageSrc} title={title} key={uuidv4()} />
         ))}
       </Slider>
     </div>

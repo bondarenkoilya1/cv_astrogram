@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   QuoteCardDescriptionListStyled,
@@ -14,7 +15,7 @@ export const QuoteCard = ({ title, description = [], ...attrs }) => {
       <QuoteCardDescriptionListStyled>
         {description &&
           description.map((description) => (
-            <QuoteCardDescriptionStyled key={crypto.randomUUID()}>
+            <QuoteCardDescriptionStyled key={uuidv4()}>
               {description}
             </QuoteCardDescriptionStyled>
           ))}

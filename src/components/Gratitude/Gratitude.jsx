@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import { ContainerStyled } from "../../styled";
 import { GratitudeOffersListStyled, GratitudeOfferStyled } from "./styled";
@@ -20,7 +21,7 @@ export const Gratitude = ({ resetForm }) => {
               description={description}
               linkText={linkText}
               onLinkClick={resetForm}
-              key={crypto.randomUUID()}
+              key={uuidv4()}
             />
           ))}
         </GratitudeOffersListStyled>
