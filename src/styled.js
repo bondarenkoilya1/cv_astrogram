@@ -114,6 +114,49 @@ export const sliderStyled = css`
     display: flex !important;
     justify-content: center;
   }
+
+  .swiper-wrapper {
+    margin: 0 auto !important;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: 961px) {
+      width: 850px !important;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: 850px !important;
+      justify-content: flex-start;
+    }
+  }
+
+  .swiper {
+    margin-top: 20px;
+  }
+
+  .swiper-slide {
+    width: fit-content !important;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background-color: #b2add8;
+      border-radius: 100%;
+      display: block;
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
 `;
 
 export const GlobalStyle = css`

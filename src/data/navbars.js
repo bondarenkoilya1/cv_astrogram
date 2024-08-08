@@ -6,8 +6,8 @@ export const headerNavPages = [
 ];
 
 export const additionalNavigation = [
-  { text: "Главная", url: "" },
-  { text: "Гороскопы", url: "" },
-  { text: "Любовь", url: "" },
-  { text: "Любовный гороскоп для одиноких", url: "" }
+  { text: "Главная", url: "", id: 1 },
+  { text: "Гороскопы", url: "", id: 2 },
+  { text: "Любовь", url: "", id: 3 },
+  { text: "Любовный гороскоп для одиноких", url: "", id: 4 }
 ];
