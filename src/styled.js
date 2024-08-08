@@ -3,6 +3,7 @@ import emotionNormalize from "emotion-normalize";
 import { css } from "@emotion/react";
 
 import styled from "@emotion/styled";
+
 import leftArrowIcon from "./assets/images/slider/left-arrow.svg";
 import rightArrowIcon from "./assets/images/slider/right-arrow.svg";
 import { connectFonts } from "./fonts";
