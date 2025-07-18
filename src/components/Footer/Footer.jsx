@@ -22,7 +22,7 @@ export const Footer = ({ stage }) => {
           <FooterWrapperStyled>
             <FooterCopyrightTextStyled>
               © Сервис с онлайн гороскопом и магазином уникальных астрологических товаров. Все
-              права защищены 2018-2024. АСТРОГРАМ
+              права защищены 2018-2025. АСТРОГРАМ
             </FooterCopyrightTextStyled>
             <FooterInformationTextStyled>
               Разработано в Астрологическом Центре
